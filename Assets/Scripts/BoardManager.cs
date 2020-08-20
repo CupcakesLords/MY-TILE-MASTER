@@ -6,31 +6,36 @@ public class BoardManager : MonoBehaviour
 {
     public static BoardManager instance;
     //
-    public List<Sprite> characters = new List<Sprite>();
-    public GameObject tile;
+    public List<Sprite> characters = new List<Sprite>(); //add from editor
+    public GameObject tile;                              //add from editor
     //
     private GameLevel currentLevel;
     //
     private GameObject[] gameTiles;
+    private int count;
     //
     public StackInBoard bar;
     //
     public int xBar, yBar;
+    //
+    private List<Record> histoire;
 
     void Start()
     {
         instance = GetComponent<BoardManager>();
-        currentLevel = Utils.ReadDefaultGameLevelFromAsset(1);
+        currentLevel = Utils.ReadDefaultGameLevelFromAsset(1); //SET LEVEL
 
         xBar = -3; yBar = -3;
         bar = new StackInBoard();
+
+        histoire = new List<Record>();
  
         CreateBoard(); 
     }
 
     private void CreateBoard()
     {
-        int total = currentLevel.tiles.Count;
+        int total = currentLevel.tiles.Count; count = total;
         gameTiles = new GameObject[total];
 
         //
@@ -50,7 +55,7 @@ public class BoardManager : MonoBehaviour
             newTile.GetComponent<SpriteRenderer>().sortingLayerName = currentLevel.tiles[i].z.ToString();
 
             int rand = Random.Range(0, characters.Count);
-
+            //
             while(true)
             {
                 if (TileRation[rand] == 0)
@@ -61,20 +66,87 @@ public class BoardManager : MonoBehaviour
                     break;
             }
             TileRation[rand] -= 1;
-
+            //
             Sprite newSprite = characters[rand];
             newTile.GetComponent<SpriteRenderer>().sprite = newSprite;
         }
     }
 
+    public void OnTileDestroy()
+    {
+        count = count - 1;
+    }
+
     public bool CheckIfLost()
     {
+        if(bar.IsFull())
+        {
+            GameEventSystem.current.PopUpWinUI(0);
+        }
         return bar.IsFull();
     }
 
     public bool CheckIfWon()
     {
-        Debug.Log("Number of tile: " + gameTiles.Length);
-        return gameTiles.Length == 0;
+        if(count == 0)
+        {
+            GameEventSystem.current.PopUpWinUI(1);
+        }
+        return count == 0;
+    }
+
+    public void PrintListRecord()
+    {
+        Debug.Log("Record " + Random.Range(900, 1000));
+        int iter = 0;
+        foreach(Record i in histoire)
+        {
+            Debug.Log("ITEM " + iter + ": " + i.tile.GetComponent<SpriteRenderer>().sprite);
+            Debug.Log(i.prevX);
+            Debug.Log(i.prevY);
+            iter++;
+        }
+    }
+
+    public void AddToRecord(GameObject Tile)
+    {
+        histoire.Add(new Record(Tile.transform.position.x, Tile.transform.position.y, Tile));
+    }
+
+    public void RecordClearMatch(GameObject Tile)
+    {
+        int count = 0;
+        Sprite temp = Tile.GetComponent<SpriteRenderer>().sprite;
+        List<Record> needRemoving = new List<Record>();
+        foreach(Record i in histoire)
+        {
+            if (i.tile.GetComponent<SpriteRenderer>().sprite == temp)
+            {
+                needRemoving.Add(i);
+                count++;
+            }
+        }
+        if (count != 3)
+            return;
+        else
+        {
+            foreach(Record i in needRemoving)
+            {
+                histoire.Remove(i);
+            }
+        }
+    }
+
+    public void UndoRecord()
+    {
+        if (histoire.Count == 0)
+            return;
+        Record r = histoire[histoire.Count - 1];
+        histoire.RemoveAt(histoire.Count - 1);
+
+        GameObject tile = r.tile;
+        bar.UponUndo(tile);
+
+        GameEventSystem.current.Undo(r);
     }
 }

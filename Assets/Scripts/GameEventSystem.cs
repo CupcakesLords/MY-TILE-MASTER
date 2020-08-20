@@ -41,4 +41,26 @@ public class GameEventSystem : MonoBehaviour
            return onDestroy_RearrangeBar(identity, pos);
         return 0;
     }
+
+    public Func<int, int> onLevelClear;
+
+    public int PopUpWinUI(int something)
+    {
+        if(onLevelClear != null)
+        {
+            return onLevelClear(something);
+        }
+        return 0;
+    }
+
+    public Func<Record, int> onUndo;
+
+    public int Undo(Record r)
+    {
+        if(onUndo != null)
+        {
+            return onUndo(r);
+        }
+        return 0;
+    }
 }

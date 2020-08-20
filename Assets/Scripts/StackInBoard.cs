@@ -26,10 +26,12 @@ public class StackInBoard
         return position;                                                                  //return position of the new tile so move it
     }
 
-    public bool CheckForMatch()                                                           //check if there is A match in the bar
+    public bool CheckForMatch(GameObject Tile)                                            //check if there is A match in the bar
     {
         if (chosenTile.Count < 3)
+        {
             return false;
+        }
         bool result = false;                                                              //this bool is the result
         int MATCH = 0;
         GameObject before = chosenTile.First.Value;
@@ -51,7 +53,13 @@ public class StackInBoard
             }
             iterator++;
         }
-        if (result == false) return false;                                                //IF: if there is no match, return
+        if (result == false)
+        {
+            return false;
+        }                                                                                 //IF: if there is no match, return
+
+        //BoardManager.instance.RecordClearMatch(Tile);
+
         int iterator2 = 0;
         List<GameObject> NeedRemoving = new List<GameObject>();                           //A list to hold tiles that are in a match 
         foreach(GameObject i in chosenTile)                                               //find those tiles in a match and put it in the list
@@ -69,6 +77,7 @@ public class StackInBoard
         }
         for(int i = 0; i < 3; i++)                                                        //remove those tiles from the list(they still exist)
             chosenTile.Remove(NeedRemoving[i]);
+        
         for (int i = 0; i < 3; i++)                                                       //destroy those tiles
             GameEventSystem.current.Match_Destroy(NeedRemoving[i]);
         int iterator3 = 0;
@@ -77,6 +86,7 @@ public class StackInBoard
             GameEventSystem.current.RearrangeBar(i, iterator3);
             iterator3++;
         }
+        
         return result;
     }
 
@@ -84,6 +94,7 @@ public class StackInBoard
     {
         if (chosenTile.Count == 0)                                                        //IF: list is empty (no tile chosen), so add first
         {
+            BoardManager.instance.AddToRecord(Tile); BoardManager.instance.RecordClearMatch(Tile);
             chosenTile.AddFirst(Tile);
             return 0;
         }
@@ -109,6 +120,7 @@ public class StackInBoard
             if (match == 0 && !match_Position_Zero)                                       //IF: tile type doesnt exist in the list, add to last 
             {
                 int position = chosenTile.Count;
+                BoardManager.instance.AddToRecord(Tile); BoardManager.instance.RecordClearMatch(Tile);
                 chosenTile.AddLast(Tile);
                 return position;                                                          //return last position
             }
@@ -125,10 +137,22 @@ public class StackInBoard
                     }
                     iterate++;
                 }
+                BoardManager.instance.AddToRecord(Tile); BoardManager.instance.RecordClearMatch(Tile);
                 chosenTile.AddAfter(chosenTile.Find(j), Tile);
                 
                 return match + 1;
             }
+        }
+    }
+
+    public void UponUndo(GameObject Tile)
+    {
+        chosenTile.Remove(Tile);
+        int iterator3 = 0;
+        foreach (GameObject i in chosenTile)                                              //rearrange the bar
+        {
+            GameEventSystem.current.RearrangeBar(i, iterator3);
+            iterator3++;
         }
     }
 }
