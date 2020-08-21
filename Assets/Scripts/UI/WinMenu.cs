@@ -28,6 +28,11 @@ public class WinMenu : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void Undo()
     {
         BoardManager.instance.UndoRecord();

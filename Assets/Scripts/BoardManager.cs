@@ -23,7 +23,7 @@ public class BoardManager : MonoBehaviour
     void Start()
     {
         instance = GetComponent<BoardManager>();
-        currentLevel = Utils.ReadDefaultGameLevelFromAsset(1); //SET LEVEL
+        currentLevel = Utils.ReadDefaultGameLevelFromAsset(GlobalStatic.PlayerChoice); //SET LEVEL
 
         xBar = -3; yBar = -3;
         bar = new StackInBoard();
@@ -52,7 +52,7 @@ public class BoardManager : MonoBehaviour
             gameTiles[i] = newTile;
             
             newTile.transform.parent = transform;
-            newTile.GetComponent<SpriteRenderer>().sortingLayerName = currentLevel.tiles[i].z.ToString();
+            newTile.GetComponent<SpriteRenderer>().sortingOrder = (int)currentLevel.tiles[i].z; 
 
             int rand = Random.Range(0, characters.Count);
             //
@@ -86,6 +86,11 @@ public class BoardManager : MonoBehaviour
         return bar.IsFull();
     }
 
+    public bool CheckIfFull()
+    {
+        return bar.IsFull();
+    }
+
     public bool CheckIfWon()
     {
         if(count == 0)
@@ -108,9 +113,9 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    public void AddToRecord(GameObject Tile)
+    public void AddToRecord(GameObject Tile, float x, float y)
     {
-        histoire.Add(new Record(Tile.transform.position.x, Tile.transform.position.y, Tile));
+        histoire.Add(new Record(x, y, Tile));
     }
 
     public void RecordClearMatch(GameObject Tile)

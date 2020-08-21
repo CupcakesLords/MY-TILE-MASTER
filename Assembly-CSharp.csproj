@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\LevelData\CreateGameLevelMenuItem.cs" />
     <Compile Include="Assets\Scripts\LevelData\GameLevel.cs" />
     <Compile Include="Assets\Scripts\LevelData\Tile.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\GlobalStatic.cs" />
+    <Compile Include="Assets\Scripts\MainMenu\LevelSelector.cs" />
     <Compile Include="Assets\Scripts\Record.cs" />
     <Compile Include="Assets\Scripts\StackInBoard.cs" />
     <Compile Include="Assets\Scripts\TileInGame.cs" />

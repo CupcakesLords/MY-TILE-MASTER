@@ -8,16 +8,15 @@ public class StackInBoard
 
     public bool IsFull()
     {
-        return chosenTile.Count == 7;
+        return chosenTile.Count >= 7;
     }
 
-    public int StackUp(GameObject Tile)                                                   //this function is called when player clicks on a tile
+    public int StackUp(GameObject Tile, float x, float y)                                 //this function is called when player clicks on a tile
     {
-        int position = CalculatePosititonOfNewTile(Tile);                                 //insert new tile to the list, calculate its position in the list
+        int position = CalculatePosititonOfNewTile(Tile, x, y);                           //insert new tile to the list, calculate its position in the list
 
-        //GameEventSystem.current.SelectedTileMove(position);                             //adjust the bar so the new chosen tile can fit in
-        int iterator = 0;
-        foreach(GameObject i in chosenTile)
+        int iterator = 0;                                                                 //adjust the bar so the new chosen tile can fit in
+        foreach (GameObject i in chosenTile)
         {
             GameEventSystem.current.SelectedTileMove(i, iterator);
             iterator++;
@@ -26,7 +25,7 @@ public class StackInBoard
         return position;                                                                  //return position of the new tile so move it
     }
 
-    public bool CheckForMatch(GameObject Tile)                                            //check if there is A match in the bar
+    public bool CheckForMatch()                                                           //check if there is A match in the bar
     {
         if (chosenTile.Count < 3)
         {
@@ -58,8 +57,6 @@ public class StackInBoard
             return false;
         }                                                                                 //IF: if there is no match, return
 
-        //BoardManager.instance.RecordClearMatch(Tile);
-
         int iterator2 = 0;
         List<GameObject> NeedRemoving = new List<GameObject>();                           //A list to hold tiles that are in a match 
         foreach(GameObject i in chosenTile)                                               //find those tiles in a match and put it in the list
@@ -90,11 +87,11 @@ public class StackInBoard
         return result;
     }
 
-    private int CalculatePosititonOfNewTile(GameObject Tile)                              //insert new tile to the list, calculate its position in the list
+    private int CalculatePosititonOfNewTile(GameObject Tile, float x, float y)            //insert new tile to the list, calculate its position in the list
     {
         if (chosenTile.Count == 0)                                                        //IF: list is empty (no tile chosen), so add first
         {
-            BoardManager.instance.AddToRecord(Tile); BoardManager.instance.RecordClearMatch(Tile);
+            BoardManager.instance.AddToRecord(Tile, x, y); BoardManager.instance.RecordClearMatch(Tile);
             chosenTile.AddFirst(Tile);
             return 0;
         }
@@ -120,7 +117,7 @@ public class StackInBoard
             if (match == 0 && !match_Position_Zero)                                       //IF: tile type doesnt exist in the list, add to last 
             {
                 int position = chosenTile.Count;
-                BoardManager.instance.AddToRecord(Tile); BoardManager.instance.RecordClearMatch(Tile);
+                BoardManager.instance.AddToRecord(Tile, x, y); BoardManager.instance.RecordClearMatch(Tile);
                 chosenTile.AddLast(Tile);
                 return position;                                                          //return last position
             }
@@ -137,7 +134,7 @@ public class StackInBoard
                     }
                     iterate++;
                 }
-                BoardManager.instance.AddToRecord(Tile); BoardManager.instance.RecordClearMatch(Tile);
+                BoardManager.instance.AddToRecord(Tile, x, y); BoardManager.instance.RecordClearMatch(Tile);
                 chosenTile.AddAfter(chosenTile.Find(j), Tile);
                 
                 return match + 1;

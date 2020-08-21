@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class TileInGame : MonoBehaviour
 {
-    private float speed = 0.5f;
+    private int bar_layer = 30000;
+    private int layer;
+    //
+    private float originX, originY;
+    private float speed = 0.3f;
     //
     private int collisionCount = 0;
     private bool selected = false;
@@ -14,7 +18,7 @@ public class TileInGame : MonoBehaviour
 
     public IEnumerator MoveToCoroutine(Transform targ, Vector3 pos, float dur)
     {
-        isMoving = true;
+        isMoving = true; GetComponent<BoxCollider2D>().enabled = false;
 
         float t = 0f;
         Vector3 start = targ.position;
@@ -28,14 +32,14 @@ public class TileInGame : MonoBehaviour
 
         targ.position = pos;
 
-        isMoving = false;
+        isMoving = false; GetComponent<BoxCollider2D>().enabled = true;
         doneMoving = true;
     }
 
     void Start()
     {
-        if (GetComponent<SpriteRenderer>().sortingLayerName != "0")
-            gameObject.layer = 2; 
+        layer = GetComponent<SpriteRenderer>().sortingOrder;
+        originX = transform.position.x; originY = transform.position.y;
     }
 
     private int UponOtherTileSelected(GameObject id, int pivot)
@@ -49,6 +53,7 @@ public class TileInGame : MonoBehaviour
             }
             mover = MoveToCoroutine(transform, new Vector3(BoardManager.instance.xBar + pivot, BoardManager.instance.yBar, 0), speed);
             StartCoroutine(mover);
+            GetComponent<SpriteRenderer>().sortingOrder = bar_layer + pivot;
         }
         return 0;
     }
@@ -74,6 +79,7 @@ public class TileInGame : MonoBehaviour
             }
             mover = MoveToCoroutine(transform, new Vector3(BoardManager.instance.xBar + pos, BoardManager.instance.yBar, 0), speed);
             StartCoroutine(mover);
+            GetComponent<SpriteRenderer>().sortingOrder = bar_layer + pos;
         }
         return 0;
     }
@@ -89,33 +95,36 @@ public class TileInGame : MonoBehaviour
             isMoving = false;
         }
         
-        selected = false;
+        mover = MoveToCoroutine(transform, new Vector3(r.prevX, r.prevY, 0), speed);
+        StartCoroutine(mover);
+
+        selected = false; doneMoving = false;
         GameEventSystem.current.onSelectedTileMove -= UponOtherTileSelected;
         GameEventSystem.current.onMatch_Destroy -= UponMatchDestruction;
         GameEventSystem.current.onDestroy_RearrangeBar -= UponMatchRearrange;
         GameEventSystem.current.onUndo -= UponUndoReset;
-        doneMoving = false;
-        
-        mover = MoveToCoroutine(transform, new Vector3(r.prevX, r.prevY, 0), speed);
-        StartCoroutine(mover);
-        
+
+        GetComponent<SpriteRenderer>().sortingOrder = layer;
+
         return 0;
     }
 
     private void OnMouseDown() //TILE IS SELECTED
     {
-        Debug.Log(collisionCount);
         if (selected)
-        {
             return;
-        }
+        if (BoardManager.instance.CheckIfFull())
+            return;
+
         selected = true;
 
         GameEventSystem.current.onSelectedTileMove += UponOtherTileSelected;
         GameEventSystem.current.onMatch_Destroy += UponMatchDestruction;
         GameEventSystem.current.onDestroy_RearrangeBar += UponMatchRearrange;
         GameEventSystem.current.onUndo += UponUndoReset;
-        
+
+        if (doneMoving == true)
+            doneMoving = false;
         StartCoroutine(MoveToBar());
     }
 
@@ -123,12 +132,12 @@ public class TileInGame : MonoBehaviour
 
     IEnumerator MoveToBar()
     {
-        BoardManager.instance.bar.StackUp(gameObject);
+        BoardManager.instance.bar.StackUp(gameObject, originX, originY);
         yield return new WaitUntil(() => doneMoving == true);
         doneMoving = false;                                                               //not sure how this line works but it stays because it is working
-        BoardManager.instance.bar.CheckForMatch(gameObject);
+        BoardManager.instance.bar.CheckForMatch();
         //yield return new WaitUntil(() => doneMoving == true);                           //not sure how this line works but it stays because it is working
-
+        
         if (BoardManager.instance.CheckIfLost())
             Debug.Log("Lost!");
         if(BoardManager.instance.CheckIfWon())
@@ -137,26 +146,32 @@ public class TileInGame : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int _this = int.Parse(GetComponent<SpriteRenderer>().sortingLayerName);
-        int _other = int.Parse(collision.GetComponent<SpriteRenderer>().sortingLayerName);
-        if(_this == _other + 1) //this object is one layer beneath the other
+        int _this = GetComponent<SpriteRenderer>().sortingOrder;
+        int _other = collision.GetComponent<SpriteRenderer>().sortingOrder;
+        if (_this < _other) 
         {
-            collisionCount++;
+            collisionCount++; 
         }
         if (collisionCount > 0)
+        {
+            GetComponent<SpriteRenderer>().material.color = new Color(0.5f, 0.5f, 0.5f, 1f);
             gameObject.layer = 2;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        int _this = int.Parse(GetComponent<SpriteRenderer>().sortingLayerName);
-        int _other = int.Parse(collision.GetComponent<SpriteRenderer>().sortingLayerName);
-        if (_this == _other + 1) //this object is one layer beneath the other
+        int _this = GetComponent<SpriteRenderer>().sortingOrder;
+        int _other = collision.GetComponent<SpriteRenderer>().sortingOrder;
+        if (_this < _other) 
         {
-            collisionCount--;
+            collisionCount--; 
         }
-        if(collisionCount == 0) 
+        if (collisionCount == 0)
+        {
+            GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1f);
             gameObject.layer = 0;
+        }
     }
 
     private void OnDestroy()
