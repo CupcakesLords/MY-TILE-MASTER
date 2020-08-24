@@ -9,7 +9,8 @@ public class BoardManager : MonoBehaviour
     public List<Sprite> characters = new List<Sprite>(); //add from editor
     public GameObject tile;                              //add from editor
     //
-    private GameLevel currentLevel;
+    //private GameLevel currentLevel;
+    private GameLevelObject currentLevel;
     //
     private GameObject[] gameTiles;
     private int count;
@@ -23,9 +24,10 @@ public class BoardManager : MonoBehaviour
     void Start()
     {
         instance = GetComponent<BoardManager>();
-        currentLevel = Utils.ReadDefaultGameLevelFromAsset(GlobalStatic.PlayerChoice); //SET LEVEL
-
-        xBar = -3; yBar = -3;
+        //currentLevel = Utils.ReadDefaultGameLevelFromAsset(1); //SET LEVEL
+        currentLevel = Utility.ReadGameLevelFromAsset(GlobalStatic.PlayerChoice);
+        
+        xBar = -3; yBar = -4;
         bar = new StackInBoard();
 
         histoire = new List<Record>();
@@ -39,10 +41,16 @@ public class BoardManager : MonoBehaviour
         gameTiles = new GameObject[total];
 
         //
+        int rationTimes = (total / 3);
         int[] TileRation = new int[characters.Count];
-        for(int i = 0; i < TileRation.Length; i++)
+        for (int i = 0; i < TileRation.Length; i++)
         {
-            TileRation[i] = 3;
+            TileRation[i] = 0;
+        }
+        for (int i = 0; i < rationTimes; i++)
+        {
+            int rand = Random.Range(0, characters.Count);
+            TileRation[rand] += 3;
         }
         //
 

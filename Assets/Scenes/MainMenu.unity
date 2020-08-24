@@ -267,7 +267,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 118590312}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809855593}
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &118590312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +517,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 177808612}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809855593}
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &177808612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,7 +796,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 530055677}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809855593}
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &530055677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,7 +1075,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 821766269}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809855593}
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &821766269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1200,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 980930921}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809855593}
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &980930921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1325,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1131360266}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809855593}
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1131360266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,7 +1450,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1188889256}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809855593}
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1188889256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2383,7 +2460,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2019200530}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1809855593}
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2019200530
 MonoBehaviour:
   m_ObjectHideFlags: 0
