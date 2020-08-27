@@ -8,8 +8,8 @@ public class BoardManager : MonoBehaviour
     //
     public List<Sprite> characters = new List<Sprite>(); //add from editor
     public GameObject tile;                              //add from editor
+    public GameObject Bar;                               //add from editor
     //
-    //private GameLevel currentLevel;
     private GameLevelObject currentLevel;
     //
     private GameObject[] gameTiles;
@@ -17,17 +17,18 @@ public class BoardManager : MonoBehaviour
     //
     public StackInBoard bar;
     //
-    public int xBar, yBar;
+    public float xBar, yBar;
     //
     private List<Record> histoire;
 
     void Start()
     {
         instance = GetComponent<BoardManager>();
-        //currentLevel = Utils.ReadDefaultGameLevelFromAsset(1); //SET LEVEL
-        currentLevel = Utility.ReadGameLevelFromAsset(GlobalStatic.PlayerChoice);
         
-        xBar = -3; yBar = -4;
+        currentLevel = Utility.ReadGameLevelFromAsset(GlobalStatic.PlayerChoice);
+
+        xBar = -(Bar.GetComponent<SpriteRenderer>().bounds.size.x / 2) + (tile.GetComponent<SpriteRenderer>().bounds.size.x / 1.5f);  yBar = Bar.transform.position.y  + (Bar.GetComponent<SpriteRenderer>().bounds.size.y / 7.75f);
+        
         bar = new StackInBoard();
 
         histoire = new List<Record>();
@@ -106,19 +107,6 @@ public class BoardManager : MonoBehaviour
             GameEventSystem.current.PopUpWinUI(1);
         }
         return count == 0;
-    }
-
-    public void PrintListRecord()
-    {
-        Debug.Log("Record " + Random.Range(900, 1000));
-        int iter = 0;
-        foreach(Record i in histoire)
-        {
-            Debug.Log("ITEM " + iter + ": " + i.tile.GetComponent<SpriteRenderer>().sprite);
-            Debug.Log(i.prevX);
-            Debug.Log(i.prevY);
-            iter++;
-        }
     }
 
     public void AddToRecord(GameObject Tile, float x, float y)

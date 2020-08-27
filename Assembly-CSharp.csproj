@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BoardManager.cs" />
+    <Compile Include="Assets\Scripts\GameCamera.cs" />
     <Compile Include="Assets\Scripts\GameEventSystem.cs" />
     <Compile Include="Assets\Scripts\JSON\GameLevelObject.cs" />
     <Compile Include="Assets\Scripts\JSON\Level.cs" />

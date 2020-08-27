@@ -12,20 +12,37 @@ public class WinMenu : MonoBehaviour
     {
         if (UI == 1)
         {
-            WinUI.SetActive(true);
+            WinUI.SetActive(true); Time.timeScale = 0;
         }
         else if(UI == 0)
         {
-            LoseUI.SetActive(true);
+            LoseUI.SetActive(true); Time.timeScale = 0;
         }
         return 0;
     }
 
     public void Reload()
     {
-        WinUI.SetActive(false);
-        LoseUI.SetActive(false);
+        WinUI.SetActive(false); Time.timeScale = 1;
+        LoseUI.SetActive(false); Time.timeScale = 1;
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+    }
+
+    public void NextLevel()
+    {
+        WinUI.SetActive(false); Time.timeScale = 1;
+        LoseUI.SetActive(false); Time.timeScale = 1;
+        GlobalStatic.PlayerChoice += 1;
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+    }
+
+    public void Revive()
+    {
+        WinUI.SetActive(false); Time.timeScale = 1;
+        LoseUI.SetActive(false); Time.timeScale = 1;
+        BoardManager.instance.UndoRecord();
+        BoardManager.instance.UndoRecord();
+        BoardManager.instance.UndoRecord();
     }
 
     public void BackToMain()
