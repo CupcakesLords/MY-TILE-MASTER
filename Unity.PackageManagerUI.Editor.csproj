@@ -1,0 +1,1729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Unity.PackageManagerUI.Editor</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectGenerator>VSTU</UnityProjectGenerator>
+    <UnityProjectType>Editor:5</UnityProjectType>
+    <UnityBuildTarget>Android:13</UnityBuildTarget>
+    <UnityVersion>2018.4.23f1</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2018_4_23;UNITY_2018_4;UNITY_2018;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_RUNTIME_PERMISSIONS;UNITY_ASTC_ONLY_DECOMPRESS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2018_4_23;UNITY_2018_4;UNITY_2018;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_RUNTIME_PERMISSIONS;UNITY_ASTC_ONLY_DECOMPRESS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Managed/UnityEngine/UnityEngine">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AIModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ARModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AccessibilityModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AnimationModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AssetBundleModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.AudioModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.BaselibModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.BaselibModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ClothModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ClusterInputModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ClusterRendererModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.CoreModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.CrashReportingModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.DirectorModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.FileSystemHttpModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.GameCenterModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.GridModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.HotReloadModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.IMGUIModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ImageConversionModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.InputModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.JSONSerializeModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.LocalizationModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ParticleSystemModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.PerformanceReportingModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.PhysicsModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.Physics2DModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ProfilerModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.ScreenCaptureModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SharedInternalsModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SpatialTrackingModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SpriteMaskModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SpriteShapeModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.StreamingModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.StyleSheetsModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.SubstanceModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TLSModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TerrainModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TerrainPhysicsModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TextCoreModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.TextCoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TextRenderingModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TilemapModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.TimelineModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.TimelineModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UIModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UIElementsModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UNETModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UmbraModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityAnalyticsModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityConnectModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityTestProtocolModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.VFXModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.VRModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.VehiclesModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.VideoModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.WindModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEngine/UnityEngine.XRModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/UnityEditor">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Managed/Unity.Locator">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\Managed/Unity.Locator.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Projects/Tile master/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>C:/Projects/Tile master/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>C:/Projects/Tile master/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>C:/Projects/Tile master/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Projects/Tile master/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Concurrent">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Collections.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Collections.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Contracts">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Debug">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Diagnostics.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tools">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Diagnostics.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Dynamic.Runtime">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Dynamic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Globalization.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.FileSystem.DriveInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.IsolatedStorage">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.IsolatedStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.MemoryMappedFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.Pipes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.IO.UnmanagedMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Parallel">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Linq.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Queryable">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Linq.Queryable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Rtc">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.Http.Rtc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.NameResolution.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NetworkInformation">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.NetworkInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Ping">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.Ping.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Requests">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.Requests.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Security">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebHeaderCollection">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.WebHeaderCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Reflection.Emit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.ILGeneration">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Reflection.Emit.ILGeneration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.Lightweight">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Reflection.Emit.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Reflection.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Reflection.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Reader">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Resources.Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.ResourceManager">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Resources.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Writer">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Resources.Writer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Handles">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Numerics">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Claims">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Security.Claims.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Csp">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Security.Cryptography.Csp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Security.Principal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.SecureString">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Security.SecureString.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Duplex">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Text.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Text.Encoding.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Overlapped">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Threading.Overlapped.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Threading.Tasks.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Timer">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Threading.Timer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XDocument">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\unityscript\UnityScript.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript.Lang">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\unityscript\UnityScript.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="Boo.Lang">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.4.23f1\Editor\Data\MonoBleedingEdge\lib\mono\unityscript\Boo.Lang.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\AssemblyInfo.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\External\SemVersion.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\External\SemVersionExtension.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Common\ApplicationUtil.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Common\OperationSignal.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Common\Resources.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Common\ThreadedDelay.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IAddOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IBaseOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IListOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IOperationFactory.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\IRemoveOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Interfaces\ISearchOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\OperationFactory.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\Package.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageAssetPostprocessor.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageCollection.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageError.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageFilter.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageGroupOrigins.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageInfo.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageInfoListExtensions.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageJsonHelper.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageListExtensions.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageOrigin.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageSearchFilter.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageState.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Packages\PackageTag.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmAddOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmBaseOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmListOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmOperationFactory.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmRemoveOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\Services\Upm\UpmSearchOperation.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\Alert.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\LoadingSpinner.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\PopupField.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\UIUtils.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Common\VersionItem.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\Interfaces\IPackageManagerExtension.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageAddFromUrlField.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageDetails.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageFiltering.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageGroup.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageItem.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageList.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageManagerExtensions.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageManagerPrefs.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageManagerToolbar.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageManagerWindow.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageSearchToolbar.cs" />
+    <Compile Include="Packages\com.unity.package-manager-ui\Editor\Sources\UI\PackageStatusBar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Map\MapConfigs\1.txt" />
+    <None Include="Assets\Map\MapConfigs\10.txt" />
+    <None Include="Assets\Map\MapConfigs\100.txt" />
+    <None Include="Assets\Map\MapConfigs\1000.txt" />
+    <None Include="Assets\Map\MapConfigs\101.txt" />
+    <None Include="Assets\Map\MapConfigs\102.txt" />
+    <None Include="Assets\Map\MapConfigs\103.txt" />
+    <None Include="Assets\Map\MapConfigs\104.txt" />
+    <None Include="Assets\Map\MapConfigs\105.txt" />
+    <None Include="Assets\Map\MapConfigs\106.txt" />
+    <None Include="Assets\Map\MapConfigs\107.txt" />
+    <None Include="Assets\Map\MapConfigs\108.txt" />
+    <None Include="Assets\Map\MapConfigs\109.txt" />
+    <None Include="Assets\Map\MapConfigs\11.txt" />
+    <None Include="Assets\Map\MapConfigs\110.txt" />
+    <None Include="Assets\Map\MapConfigs\111.txt" />
+    <None Include="Assets\Map\MapConfigs\112.txt" />
+    <None Include="Assets\Map\MapConfigs\113.txt" />
+    <None Include="Assets\Map\MapConfigs\114.txt" />
+    <None Include="Assets\Map\MapConfigs\115.txt" />
+    <None Include="Assets\Map\MapConfigs\116.txt" />
+    <None Include="Assets\Map\MapConfigs\117.txt" />
+    <None Include="Assets\Map\MapConfigs\118.txt" />
+    <None Include="Assets\Map\MapConfigs\119.txt" />
+    <None Include="Assets\Map\MapConfigs\12.txt" />
+    <None Include="Assets\Map\MapConfigs\120.txt" />
+    <None Include="Assets\Map\MapConfigs\121.txt" />
+    <None Include="Assets\Map\MapConfigs\122.txt" />
+    <None Include="Assets\Map\MapConfigs\123.txt" />
+    <None Include="Assets\Map\MapConfigs\124.txt" />
+    <None Include="Assets\Map\MapConfigs\125.txt" />
+    <None Include="Assets\Map\MapConfigs\126.txt" />
+    <None Include="Assets\Map\MapConfigs\127.txt" />
+    <None Include="Assets\Map\MapConfigs\128.txt" />
+    <None Include="Assets\Map\MapConfigs\129.txt" />
+    <None Include="Assets\Map\MapConfigs\13.txt" />
+    <None Include="Assets\Map\MapConfigs\130.txt" />
+    <None Include="Assets\Map\MapConfigs\131.txt" />
+    <None Include="Assets\Map\MapConfigs\132.txt" />
+    <None Include="Assets\Map\MapConfigs\133.txt" />
+    <None Include="Assets\Map\MapConfigs\134.txt" />
+    <None Include="Assets\Map\MapConfigs\135.txt" />
+    <None Include="Assets\Map\MapConfigs\136.txt" />
+    <None Include="Assets\Map\MapConfigs\137.txt" />
+    <None Include="Assets\Map\MapConfigs\138.txt" />
+    <None Include="Assets\Map\MapConfigs\139.txt" />
+    <None Include="Assets\Map\MapConfigs\14.txt" />
+    <None Include="Assets\Map\MapConfigs\140.txt" />
+    <None Include="Assets\Map\MapConfigs\141.txt" />
+    <None Include="Assets\Map\MapConfigs\142.txt" />
+    <None Include="Assets\Map\MapConfigs\143.txt" />
+    <None Include="Assets\Map\MapConfigs\144.txt" />
+    <None Include="Assets\Map\MapConfigs\145.txt" />
+    <None Include="Assets\Map\MapConfigs\146.txt" />
+    <None Include="Assets\Map\MapConfigs\147.txt" />
+    <None Include="Assets\Map\MapConfigs\148.txt" />
+    <None Include="Assets\Map\MapConfigs\149.txt" />
+    <None Include="Assets\Map\MapConfigs\15.txt" />
+    <None Include="Assets\Map\MapConfigs\150.txt" />
+    <None Include="Assets\Map\MapConfigs\151.txt" />
+    <None Include="Assets\Map\MapConfigs\152.txt" />
+    <None Include="Assets\Map\MapConfigs\153.txt" />
+    <None Include="Assets\Map\MapConfigs\154.txt" />
+    <None Include="Assets\Map\MapConfigs\155.txt" />
+    <None Include="Assets\Map\MapConfigs\156.txt" />
+    <None Include="Assets\Map\MapConfigs\157.txt" />
+    <None Include="Assets\Map\MapConfigs\158.txt" />
+    <None Include="Assets\Map\MapConfigs\159.txt" />
+    <None Include="Assets\Map\MapConfigs\16.txt" />
+    <None Include="Assets\Map\MapConfigs\160.txt" />
+    <None Include="Assets\Map\MapConfigs\161.txt" />
+    <None Include="Assets\Map\MapConfigs\162.txt" />
+    <None Include="Assets\Map\MapConfigs\163.txt" />
+    <None Include="Assets\Map\MapConfigs\164.txt" />
+    <None Include="Assets\Map\MapConfigs\165.txt" />
+    <None Include="Assets\Map\MapConfigs\166.txt" />
+    <None Include="Assets\Map\MapConfigs\167.txt" />
+    <None Include="Assets\Map\MapConfigs\168.txt" />
+    <None Include="Assets\Map\MapConfigs\169.txt" />
+    <None Include="Assets\Map\MapConfigs\17.txt" />
+    <None Include="Assets\Map\MapConfigs\170.txt" />
+    <None Include="Assets\Map\MapConfigs\171.txt" />
+    <None Include="Assets\Map\MapConfigs\172.txt" />
+    <None Include="Assets\Map\MapConfigs\173.txt" />
+    <None Include="Assets\Map\MapConfigs\174.txt" />
+    <None Include="Assets\Map\MapConfigs\175.txt" />
+    <None Include="Assets\Map\MapConfigs\176.txt" />
+    <None Include="Assets\Map\MapConfigs\177.txt" />
+    <None Include="Assets\Map\MapConfigs\178.txt" />
+    <None Include="Assets\Map\MapConfigs\179.txt" />
+    <None Include="Assets\Map\MapConfigs\18.txt" />
+    <None Include="Assets\Map\MapConfigs\180.txt" />
+    <None Include="Assets\Map\MapConfigs\181.txt" />
+    <None Include="Assets\Map\MapConfigs\182.txt" />
+    <None Include="Assets\Map\MapConfigs\183.txt" />
+    <None Include="Assets\Map\MapConfigs\184.txt" />
+    <None Include="Assets\Map\MapConfigs\185.txt" />
+    <None Include="Assets\Map\MapConfigs\186.txt" />
+    <None Include="Assets\Map\MapConfigs\187.txt" />
+    <None Include="Assets\Map\MapConfigs\188.txt" />
+    <None Include="Assets\Map\MapConfigs\189.txt" />
+    <None Include="Assets\Map\MapConfigs\19.txt" />
+    <None Include="Assets\Map\MapConfigs\190.txt" />
+    <None Include="Assets\Map\MapConfigs\191.txt" />
+    <None Include="Assets\Map\MapConfigs\192.txt" />
+    <None Include="Assets\Map\MapConfigs\193.txt" />
+    <None Include="Assets\Map\MapConfigs\194.txt" />
+    <None Include="Assets\Map\MapConfigs\195.txt" />
+    <None Include="Assets\Map\MapConfigs\196.txt" />
+    <None Include="Assets\Map\MapConfigs\197.txt" />
+    <None Include="Assets\Map\MapConfigs\198.txt" />
+    <None Include="Assets\Map\MapConfigs\199.txt" />
+    <None Include="Assets\Map\MapConfigs\2.txt" />
+    <None Include="Assets\Map\MapConfigs\20.txt" />
+    <None Include="Assets\Map\MapConfigs\200.txt" />
+    <None Include="Assets\Map\MapConfigs\201.txt" />
+    <None Include="Assets\Map\MapConfigs\202.txt" />
+    <None Include="Assets\Map\MapConfigs\203.txt" />
+    <None Include="Assets\Map\MapConfigs\204.txt" />
+    <None Include="Assets\Map\MapConfigs\205.txt" />
+    <None Include="Assets\Map\MapConfigs\206.txt" />
+    <None Include="Assets\Map\MapConfigs\207.txt" />
+    <None Include="Assets\Map\MapConfigs\208.txt" />
+    <None Include="Assets\Map\MapConfigs\209.txt" />
+    <None Include="Assets\Map\MapConfigs\21.txt" />
+    <None Include="Assets\Map\MapConfigs\210.txt" />
+    <None Include="Assets\Map\MapConfigs\211.txt" />
+    <None Include="Assets\Map\MapConfigs\212.txt" />
+    <None Include="Assets\Map\MapConfigs\213.txt" />
+    <None Include="Assets\Map\MapConfigs\214.txt" />
+    <None Include="Assets\Map\MapConfigs\215.txt" />
+    <None Include="Assets\Map\MapConfigs\216.txt" />
+    <None Include="Assets\Map\MapConfigs\217.txt" />
+    <None Include="Assets\Map\MapConfigs\218.txt" />
+    <None Include="Assets\Map\MapConfigs\219.txt" />
+    <None Include="Assets\Map\MapConfigs\22.txt" />
+    <None Include="Assets\Map\MapConfigs\220.txt" />
+    <None Include="Assets\Map\MapConfigs\221.txt" />
+    <None Include="Assets\Map\MapConfigs\222.txt" />
+    <None Include="Assets\Map\MapConfigs\223.txt" />
+    <None Include="Assets\Map\MapConfigs\224.txt" />
+    <None Include="Assets\Map\MapConfigs\225.txt" />
+    <None Include="Assets\Map\MapConfigs\226.txt" />
+    <None Include="Assets\Map\MapConfigs\227.txt" />
+    <None Include="Assets\Map\MapConfigs\228.txt" />
+    <None Include="Assets\Map\MapConfigs\229.txt" />
+    <None Include="Assets\Map\MapConfigs\23.txt" />
+    <None Include="Assets\Map\MapConfigs\230.txt" />
+    <None Include="Assets\Map\MapConfigs\231.txt" />
+    <None Include="Assets\Map\MapConfigs\232.txt" />
+    <None Include="Assets\Map\MapConfigs\233.txt" />
+    <None Include="Assets\Map\MapConfigs\234.txt" />
+    <None Include="Assets\Map\MapConfigs\235.txt" />
+    <None Include="Assets\Map\MapConfigs\236.txt" />
+    <None Include="Assets\Map\MapConfigs\237.txt" />
+    <None Include="Assets\Map\MapConfigs\238.txt" />
+    <None Include="Assets\Map\MapConfigs\239.txt" />
+    <None Include="Assets\Map\MapConfigs\24.txt" />
+    <None Include="Assets\Map\MapConfigs\240.txt" />
+    <None Include="Assets\Map\MapConfigs\241.txt" />
+    <None Include="Assets\Map\MapConfigs\242.txt" />
+    <None Include="Assets\Map\MapConfigs\243.txt" />
+    <None Include="Assets\Map\MapConfigs\244.txt" />
+    <None Include="Assets\Map\MapConfigs\245.txt" />
+    <None Include="Assets\Map\MapConfigs\246.txt" />
+    <None Include="Assets\Map\MapConfigs\247.txt" />
+    <None Include="Assets\Map\MapConfigs\248.txt" />
+    <None Include="Assets\Map\MapConfigs\249.txt" />
+    <None Include="Assets\Map\MapConfigs\25.txt" />
+    <None Include="Assets\Map\MapConfigs\250.txt" />
+    <None Include="Assets\Map\MapConfigs\251.txt" />
+    <None Include="Assets\Map\MapConfigs\252.txt" />
+    <None Include="Assets\Map\MapConfigs\253.txt" />
+    <None Include="Assets\Map\MapConfigs\254.txt" />
+    <None Include="Assets\Map\MapConfigs\255.txt" />
+    <None Include="Assets\Map\MapConfigs\256.txt" />
+    <None Include="Assets\Map\MapConfigs\257.txt" />
+    <None Include="Assets\Map\MapConfigs\258.txt" />
+    <None Include="Assets\Map\MapConfigs\259.txt" />
+    <None Include="Assets\Map\MapConfigs\26.txt" />
+    <None Include="Assets\Map\MapConfigs\260.txt" />
+    <None Include="Assets\Map\MapConfigs\261.txt" />
+    <None Include="Assets\Map\MapConfigs\262.txt" />
+    <None Include="Assets\Map\MapConfigs\263.txt" />
+    <None Include="Assets\Map\MapConfigs\264.txt" />
+    <None Include="Assets\Map\MapConfigs\265.txt" />
+    <None Include="Assets\Map\MapConfigs\266.txt" />
+    <None Include="Assets\Map\MapConfigs\267.txt" />
+    <None Include="Assets\Map\MapConfigs\268.txt" />
+    <None Include="Assets\Map\MapConfigs\269.txt" />
+    <None Include="Assets\Map\MapConfigs\27.txt" />
+    <None Include="Assets\Map\MapConfigs\270.txt" />
+    <None Include="Assets\Map\MapConfigs\271.txt" />
+    <None Include="Assets\Map\MapConfigs\272.txt" />
+    <None Include="Assets\Map\MapConfigs\273.txt" />
+    <None Include="Assets\Map\MapConfigs\274.txt" />
+    <None Include="Assets\Map\MapConfigs\275.txt" />
+    <None Include="Assets\Map\MapConfigs\276.txt" />
+    <None Include="Assets\Map\MapConfigs\277.txt" />
+    <None Include="Assets\Map\MapConfigs\278.txt" />
+    <None Include="Assets\Map\MapConfigs\279.txt" />
+    <None Include="Assets\Map\MapConfigs\28.txt" />
+    <None Include="Assets\Map\MapConfigs\280.txt" />
+    <None Include="Assets\Map\MapConfigs\281.txt" />
+    <None Include="Assets\Map\MapConfigs\282.txt" />
+    <None Include="Assets\Map\MapConfigs\283.txt" />
+    <None Include="Assets\Map\MapConfigs\284.txt" />
+    <None Include="Assets\Map\MapConfigs\285.txt" />
+    <None Include="Assets\Map\MapConfigs\286.txt" />
+    <None Include="Assets\Map\MapConfigs\287.txt" />
+    <None Include="Assets\Map\MapConfigs\288.txt" />
+    <None Include="Assets\Map\MapConfigs\289.txt" />
+    <None Include="Assets\Map\MapConfigs\29.txt" />
+    <None Include="Assets\Map\MapConfigs\290.txt" />
+    <None Include="Assets\Map\MapConfigs\291.txt" />
+    <None Include="Assets\Map\MapConfigs\292.txt" />
+    <None Include="Assets\Map\MapConfigs\293.txt" />
+    <None Include="Assets\Map\MapConfigs\294.txt" />
+    <None Include="Assets\Map\MapConfigs\295.txt" />
+    <None Include="Assets\Map\MapConfigs\296.txt" />
+    <None Include="Assets\Map\MapConfigs\297.txt" />
+    <None Include="Assets\Map\MapConfigs\298.txt" />
+    <None Include="Assets\Map\MapConfigs\299.txt" />
+    <None Include="Assets\Map\MapConfigs\3.txt" />
+    <None Include="Assets\Map\MapConfigs\30.txt" />
+    <None Include="Assets\Map\MapConfigs\300.txt" />
+    <None Include="Assets\Map\MapConfigs\301.txt" />
+    <None Include="Assets\Map\MapConfigs\302.txt" />
+    <None Include="Assets\Map\MapConfigs\303.txt" />
+    <None Include="Assets\Map\MapConfigs\304.txt" />
+    <None Include="Assets\Map\MapConfigs\305.txt" />
+    <None Include="Assets\Map\MapConfigs\306.txt" />
+    <None Include="Assets\Map\MapConfigs\307.txt" />
+    <None Include="Assets\Map\MapConfigs\308.txt" />
+    <None Include="Assets\Map\MapConfigs\309.txt" />
+    <None Include="Assets\Map\MapConfigs\31.txt" />
+    <None Include="Assets\Map\MapConfigs\310.txt" />
+    <None Include="Assets\Map\MapConfigs\311.txt" />
+    <None Include="Assets\Map\MapConfigs\312.txt" />
+    <None Include="Assets\Map\MapConfigs\313.txt" />
+    <None Include="Assets\Map\MapConfigs\314.txt" />
+    <None Include="Assets\Map\MapConfigs\315.txt" />
+    <None Include="Assets\Map\MapConfigs\316.txt" />
+    <None Include="Assets\Map\MapConfigs\317.txt" />
+    <None Include="Assets\Map\MapConfigs\318.txt" />
+    <None Include="Assets\Map\MapConfigs\319.txt" />
+    <None Include="Assets\Map\MapConfigs\32.txt" />
+    <None Include="Assets\Map\MapConfigs\320.txt" />
+    <None Include="Assets\Map\MapConfigs\321.txt" />
+    <None Include="Assets\Map\MapConfigs\322.txt" />
+    <None Include="Assets\Map\MapConfigs\323.txt" />
+    <None Include="Assets\Map\MapConfigs\324.txt" />
+    <None Include="Assets\Map\MapConfigs\325.txt" />
+    <None Include="Assets\Map\MapConfigs\326.txt" />
+    <None Include="Assets\Map\MapConfigs\327.txt" />
+    <None Include="Assets\Map\MapConfigs\328.txt" />
+    <None Include="Assets\Map\MapConfigs\329.txt" />
+    <None Include="Assets\Map\MapConfigs\33.txt" />
+    <None Include="Assets\Map\MapConfigs\330.txt" />
+    <None Include="Assets\Map\MapConfigs\331.txt" />
+    <None Include="Assets\Map\MapConfigs\332.txt" />
+    <None Include="Assets\Map\MapConfigs\333.txt" />
+    <None Include="Assets\Map\MapConfigs\334.txt" />
+    <None Include="Assets\Map\MapConfigs\335.txt" />
+    <None Include="Assets\Map\MapConfigs\336.txt" />
+    <None Include="Assets\Map\MapConfigs\337.txt" />
+    <None Include="Assets\Map\MapConfigs\338.txt" />
+    <None Include="Assets\Map\MapConfigs\339.txt" />
+    <None Include="Assets\Map\MapConfigs\34.txt" />
+    <None Include="Assets\Map\MapConfigs\340.txt" />
+    <None Include="Assets\Map\MapConfigs\341.txt" />
+    <None Include="Assets\Map\MapConfigs\342.txt" />
+    <None Include="Assets\Map\MapConfigs\343.txt" />
+    <None Include="Assets\Map\MapConfigs\344.txt" />
+    <None Include="Assets\Map\MapConfigs\345.txt" />
+    <None Include="Assets\Map\MapConfigs\346.txt" />
+    <None Include="Assets\Map\MapConfigs\347.txt" />
+    <None Include="Assets\Map\MapConfigs\348.txt" />
+    <None Include="Assets\Map\MapConfigs\349.txt" />
+    <None Include="Assets\Map\MapConfigs\35.txt" />
+    <None Include="Assets\Map\MapConfigs\350.txt" />
+    <None Include="Assets\Map\MapConfigs\351.txt" />
+    <None Include="Assets\Map\MapConfigs\352.txt" />
+    <None Include="Assets\Map\MapConfigs\353.txt" />
+    <None Include="Assets\Map\MapConfigs\354.txt" />
+    <None Include="Assets\Map\MapConfigs\355.txt" />
+    <None Include="Assets\Map\MapConfigs\356.txt" />
+    <None Include="Assets\Map\MapConfigs\357.txt" />
+    <None Include="Assets\Map\MapConfigs\358.txt" />
+    <None Include="Assets\Map\MapConfigs\359.txt" />
+    <None Include="Assets\Map\MapConfigs\36.txt" />
+    <None Include="Assets\Map\MapConfigs\360.txt" />
+    <None Include="Assets\Map\MapConfigs\361.txt" />
+    <None Include="Assets\Map\MapConfigs\362.txt" />
+    <None Include="Assets\Map\MapConfigs\363.txt" />
+    <None Include="Assets\Map\MapConfigs\364.txt" />
+    <None Include="Assets\Map\MapConfigs\365.txt" />
+    <None Include="Assets\Map\MapConfigs\366.txt" />
+    <None Include="Assets\Map\MapConfigs\367.txt" />
+    <None Include="Assets\Map\MapConfigs\368.txt" />
+    <None Include="Assets\Map\MapConfigs\369.txt" />
+    <None Include="Assets\Map\MapConfigs\37.txt" />
+    <None Include="Assets\Map\MapConfigs\370.txt" />
+    <None Include="Assets\Map\MapConfigs\371.txt" />
+    <None Include="Assets\Map\MapConfigs\372.txt" />
+    <None Include="Assets\Map\MapConfigs\373.txt" />
+    <None Include="Assets\Map\MapConfigs\374.txt" />
+    <None Include="Assets\Map\MapConfigs\375.txt" />
+    <None Include="Assets\Map\MapConfigs\376.txt" />
+    <None Include="Assets\Map\MapConfigs\377.txt" />
+    <None Include="Assets\Map\MapConfigs\378.txt" />
+    <None Include="Assets\Map\MapConfigs\379.txt" />
+    <None Include="Assets\Map\MapConfigs\38.txt" />
+    <None Include="Assets\Map\MapConfigs\380.txt" />
+    <None Include="Assets\Map\MapConfigs\381.txt" />
+    <None Include="Assets\Map\MapConfigs\382.txt" />
+    <None Include="Assets\Map\MapConfigs\383.txt" />
+    <None Include="Assets\Map\MapConfigs\384.txt" />
+    <None Include="Assets\Map\MapConfigs\385.txt" />
+    <None Include="Assets\Map\MapConfigs\386.txt" />
+    <None Include="Assets\Map\MapConfigs\387.txt" />
+    <None Include="Assets\Map\MapConfigs\388.txt" />
+    <None Include="Assets\Map\MapConfigs\389.txt" />
+    <None Include="Assets\Map\MapConfigs\39.txt" />
+    <None Include="Assets\Map\MapConfigs\390.txt" />
+    <None Include="Assets\Map\MapConfigs\391.txt" />
+    <None Include="Assets\Map\MapConfigs\392.txt" />
+    <None Include="Assets\Map\MapConfigs\393.txt" />
+    <None Include="Assets\Map\MapConfigs\394.txt" />
+    <None Include="Assets\Map\MapConfigs\395.txt" />
+    <None Include="Assets\Map\MapConfigs\396.txt" />
+    <None Include="Assets\Map\MapConfigs\397.txt" />
+    <None Include="Assets\Map\MapConfigs\398.txt" />
+    <None Include="Assets\Map\MapConfigs\399.txt" />
+    <None Include="Assets\Map\MapConfigs\4.txt" />
+    <None Include="Assets\Map\MapConfigs\40.txt" />
+    <None Include="Assets\Map\MapConfigs\400.txt" />
+    <None Include="Assets\Map\MapConfigs\401.txt" />
+    <None Include="Assets\Map\MapConfigs\402.txt" />
+    <None Include="Assets\Map\MapConfigs\403.txt" />
+    <None Include="Assets\Map\MapConfigs\404.txt" />
+    <None Include="Assets\Map\MapConfigs\405.txt" />
+    <None Include="Assets\Map\MapConfigs\406.txt" />
+    <None Include="Assets\Map\MapConfigs\407.txt" />
+    <None Include="Assets\Map\MapConfigs\408.txt" />
+    <None Include="Assets\Map\MapConfigs\409.txt" />
+    <None Include="Assets\Map\MapConfigs\41.txt" />
+    <None Include="Assets\Map\MapConfigs\410.txt" />
+    <None Include="Assets\Map\MapConfigs\411.txt" />
+    <None Include="Assets\Map\MapConfigs\412.txt" />
+    <None Include="Assets\Map\MapConfigs\413.txt" />
+    <None Include="Assets\Map\MapConfigs\414.txt" />
+    <None Include="Assets\Map\MapConfigs\415.txt" />
+    <None Include="Assets\Map\MapConfigs\416.txt" />
+    <None Include="Assets\Map\MapConfigs\417.txt" />
+    <None Include="Assets\Map\MapConfigs\418.txt" />
+    <None Include="Assets\Map\MapConfigs\419.txt" />
+    <None Include="Assets\Map\MapConfigs\42.txt" />
+    <None Include="Assets\Map\MapConfigs\420.txt" />
+    <None Include="Assets\Map\MapConfigs\421.txt" />
+    <None Include="Assets\Map\MapConfigs\422.txt" />
+    <None Include="Assets\Map\MapConfigs\423.txt" />
+    <None Include="Assets\Map\MapConfigs\424.txt" />
+    <None Include="Assets\Map\MapConfigs\425.txt" />
+    <None Include="Assets\Map\MapConfigs\426.txt" />
+    <None Include="Assets\Map\MapConfigs\427.txt" />
+    <None Include="Assets\Map\MapConfigs\428.txt" />
+    <None Include="Assets\Map\MapConfigs\429.txt" />
+    <None Include="Assets\Map\MapConfigs\43.txt" />
+    <None Include="Assets\Map\MapConfigs\430.txt" />
+    <None Include="Assets\Map\MapConfigs\431.txt" />
+    <None Include="Assets\Map\MapConfigs\432.txt" />
+    <None Include="Assets\Map\MapConfigs\433.txt" />
+    <None Include="Assets\Map\MapConfigs\434.txt" />
+    <None Include="Assets\Map\MapConfigs\435.txt" />
+    <None Include="Assets\Map\MapConfigs\436.txt" />
+    <None Include="Assets\Map\MapConfigs\437.txt" />
+    <None Include="Assets\Map\MapConfigs\438.txt" />
+    <None Include="Assets\Map\MapConfigs\439.txt" />
+    <None Include="Assets\Map\MapConfigs\44.txt" />
+    <None Include="Assets\Map\MapConfigs\440.txt" />
+    <None Include="Assets\Map\MapConfigs\441.txt" />
+    <None Include="Assets\Map\MapConfigs\442.txt" />
+    <None Include="Assets\Map\MapConfigs\443.txt" />
+    <None Include="Assets\Map\MapConfigs\444.txt" />
+    <None Include="Assets\Map\MapConfigs\445.txt" />
+    <None Include="Assets\Map\MapConfigs\446.txt" />
+    <None Include="Assets\Map\MapConfigs\447.txt" />
+    <None Include="Assets\Map\MapConfigs\448.txt" />
+    <None Include="Assets\Map\MapConfigs\449.txt" />
+    <None Include="Assets\Map\MapConfigs\45.txt" />
+    <None Include="Assets\Map\MapConfigs\450.txt" />
+    <None Include="Assets\Map\MapConfigs\451.txt" />
+    <None Include="Assets\Map\MapConfigs\452.txt" />
+    <None Include="Assets\Map\MapConfigs\453.txt" />
+    <None Include="Assets\Map\MapConfigs\454.txt" />
+    <None Include="Assets\Map\MapConfigs\455.txt" />
+    <None Include="Assets\Map\MapConfigs\456.txt" />
+    <None Include="Assets\Map\MapConfigs\457.txt" />
+    <None Include="Assets\Map\MapConfigs\458.txt" />
+    <None Include="Assets\Map\MapConfigs\459.txt" />
+    <None Include="Assets\Map\MapConfigs\46.txt" />
+    <None Include="Assets\Map\MapConfigs\460.txt" />
+    <None Include="Assets\Map\MapConfigs\461.txt" />
+    <None Include="Assets\Map\MapConfigs\462.txt" />
+    <None Include="Assets\Map\MapConfigs\463.txt" />
+    <None Include="Assets\Map\MapConfigs\464.txt" />
+    <None Include="Assets\Map\MapConfigs\465.txt" />
+    <None Include="Assets\Map\MapConfigs\466.txt" />
+    <None Include="Assets\Map\MapConfigs\467.txt" />
+    <None Include="Assets\Map\MapConfigs\468.txt" />
+    <None Include="Assets\Map\MapConfigs\469.txt" />
+    <None Include="Assets\Map\MapConfigs\47.txt" />
+    <None Include="Assets\Map\MapConfigs\470.txt" />
+    <None Include="Assets\Map\MapConfigs\471.txt" />
+    <None Include="Assets\Map\MapConfigs\472.txt" />
+    <None Include="Assets\Map\MapConfigs\473.txt" />
+    <None Include="Assets\Map\MapConfigs\474.txt" />
+    <None Include="Assets\Map\MapConfigs\475.txt" />
+    <None Include="Assets\Map\MapConfigs\476.txt" />
+    <None Include="Assets\Map\MapConfigs\477.txt" />
+    <None Include="Assets\Map\MapConfigs\478.txt" />
+    <None Include="Assets\Map\MapConfigs\479.txt" />
+    <None Include="Assets\Map\MapConfigs\48.txt" />
+    <None Include="Assets\Map\MapConfigs\480.txt" />
+    <None Include="Assets\Map\MapConfigs\481.txt" />
+    <None Include="Assets\Map\MapConfigs\482.txt" />
+    <None Include="Assets\Map\MapConfigs\483.txt" />
+    <None Include="Assets\Map\MapConfigs\484.txt" />
+    <None Include="Assets\Map\MapConfigs\485.txt" />
+    <None Include="Assets\Map\MapConfigs\486.txt" />
+    <None Include="Assets\Map\MapConfigs\487.txt" />
+    <None Include="Assets\Map\MapConfigs\488.txt" />
+    <None Include="Assets\Map\MapConfigs\489.txt" />
+    <None Include="Assets\Map\MapConfigs\49.txt" />
+    <None Include="Assets\Map\MapConfigs\490.txt" />
+    <None Include="Assets\Map\MapConfigs\491.txt" />
+    <None Include="Assets\Map\MapConfigs\492.txt" />
+    <None Include="Assets\Map\MapConfigs\493.txt" />
+    <None Include="Assets\Map\MapConfigs\494.txt" />
+    <None Include="Assets\Map\MapConfigs\495.txt" />
+    <None Include="Assets\Map\MapConfigs\496.txt" />
+    <None Include="Assets\Map\MapConfigs\497.txt" />
+    <None Include="Assets\Map\MapConfigs\498.txt" />
+    <None Include="Assets\Map\MapConfigs\499.txt" />
+    <None Include="Assets\Map\MapConfigs\5.txt" />
+    <None Include="Assets\Map\MapConfigs\50.txt" />
+    <None Include="Assets\Map\MapConfigs\500.txt" />
+    <None Include="Assets\Map\MapConfigs\501.txt" />
+    <None Include="Assets\Map\MapConfigs\502.txt" />
+    <None Include="Assets\Map\MapConfigs\503.txt" />
+    <None Include="Assets\Map\MapConfigs\504.txt" />
+    <None Include="Assets\Map\MapConfigs\505.txt" />
+    <None Include="Assets\Map\MapConfigs\506.txt" />
+    <None Include="Assets\Map\MapConfigs\507.txt" />
+    <None Include="Assets\Map\MapConfigs\508.txt" />
+    <None Include="Assets\Map\MapConfigs\509.txt" />
+    <None Include="Assets\Map\MapConfigs\51.txt" />
+    <None Include="Assets\Map\MapConfigs\510.txt" />
+    <None Include="Assets\Map\MapConfigs\511.txt" />
+    <None Include="Assets\Map\MapConfigs\512.txt" />
+    <None Include="Assets\Map\MapConfigs\513.txt" />
+    <None Include="Assets\Map\MapConfigs\514.txt" />
+    <None Include="Assets\Map\MapConfigs\515.txt" />
+    <None Include="Assets\Map\MapConfigs\516.txt" />
+    <None Include="Assets\Map\MapConfigs\517.txt" />
+    <None Include="Assets\Map\MapConfigs\518.txt" />
+    <None Include="Assets\Map\MapConfigs\519.txt" />
+    <None Include="Assets\Map\MapConfigs\52.txt" />
+    <None Include="Assets\Map\MapConfigs\520.txt" />
+    <None Include="Assets\Map\MapConfigs\521.txt" />
+    <None Include="Assets\Map\MapConfigs\522.txt" />
+    <None Include="Assets\Map\MapConfigs\523.txt" />
+    <None Include="Assets\Map\MapConfigs\524.txt" />
+    <None Include="Assets\Map\MapConfigs\525.txt" />
+    <None Include="Assets\Map\MapConfigs\526.txt" />
+    <None Include="Assets\Map\MapConfigs\527.txt" />
+    <None Include="Assets\Map\MapConfigs\528.txt" />
+    <None Include="Assets\Map\MapConfigs\529.txt" />
+    <None Include="Assets\Map\MapConfigs\53.txt" />
+    <None Include="Assets\Map\MapConfigs\530.txt" />
+    <None Include="Assets\Map\MapConfigs\531.txt" />
+    <None Include="Assets\Map\MapConfigs\532.txt" />
+    <None Include="Assets\Map\MapConfigs\533.txt" />
+    <None Include="Assets\Map\MapConfigs\534.txt" />
+    <None Include="Assets\Map\MapConfigs\535.txt" />
+    <None Include="Assets\Map\MapConfigs\536.txt" />
+    <None Include="Assets\Map\MapConfigs\537.txt" />
+    <None Include="Assets\Map\MapConfigs\538.txt" />
+    <None Include="Assets\Map\MapConfigs\539.txt" />
+    <None Include="Assets\Map\MapConfigs\54.txt" />
+    <None Include="Assets\Map\MapConfigs\540.txt" />
+    <None Include="Assets\Map\MapConfigs\541.txt" />
+    <None Include="Assets\Map\MapConfigs\542.txt" />
+    <None Include="Assets\Map\MapConfigs\543.txt" />
+    <None Include="Assets\Map\MapConfigs\544.txt" />
+    <None Include="Assets\Map\MapConfigs\545.txt" />
+    <None Include="Assets\Map\MapConfigs\546.txt" />
+    <None Include="Assets\Map\MapConfigs\547.txt" />
+    <None Include="Assets\Map\MapConfigs\548.txt" />
+    <None Include="Assets\Map\MapConfigs\549.txt" />
+    <None Include="Assets\Map\MapConfigs\55.txt" />
+    <None Include="Assets\Map\MapConfigs\550.txt" />
+    <None Include="Assets\Map\MapConfigs\551.txt" />
+    <None Include="Assets\Map\MapConfigs\552.txt" />
+    <None Include="Assets\Map\MapConfigs\553.txt" />
+    <None Include="Assets\Map\MapConfigs\554.txt" />
+    <None Include="Assets\Map\MapConfigs\555.txt" />
+    <None Include="Assets\Map\MapConfigs\556.txt" />
+    <None Include="Assets\Map\MapConfigs\557.txt" />
+    <None Include="Assets\Map\MapConfigs\558.txt" />
+    <None Include="Assets\Map\MapConfigs\559.txt" />
+    <None Include="Assets\Map\MapConfigs\56.txt" />
+    <None Include="Assets\Map\MapConfigs\560.txt" />
+    <None Include="Assets\Map\MapConfigs\561.txt" />
+    <None Include="Assets\Map\MapConfigs\562.txt" />
+    <None Include="Assets\Map\MapConfigs\563.txt" />
+    <None Include="Assets\Map\MapConfigs\564.txt" />
+    <None Include="Assets\Map\MapConfigs\565.txt" />
+    <None Include="Assets\Map\MapConfigs\566.txt" />
+    <None Include="Assets\Map\MapConfigs\567.txt" />
+    <None Include="Assets\Map\MapConfigs\568.txt" />
+    <None Include="Assets\Map\MapConfigs\569.txt" />
+    <None Include="Assets\Map\MapConfigs\57.txt" />
+    <None Include="Assets\Map\MapConfigs\570.txt" />
+    <None Include="Assets\Map\MapConfigs\571.txt" />
+    <None Include="Assets\Map\MapConfigs\572.txt" />
+    <None Include="Assets\Map\MapConfigs\573.txt" />
+    <None Include="Assets\Map\MapConfigs\574.txt" />
+    <None Include="Assets\Map\MapConfigs\575.txt" />
+    <None Include="Assets\Map\MapConfigs\576.txt" />
+    <None Include="Assets\Map\MapConfigs\577.txt" />
+    <None Include="Assets\Map\MapConfigs\578.txt" />
+    <None Include="Assets\Map\MapConfigs\579.txt" />
+    <None Include="Assets\Map\MapConfigs\58.txt" />
+    <None Include="Assets\Map\MapConfigs\580.txt" />
+    <None Include="Assets\Map\MapConfigs\581.txt" />
+    <None Include="Assets\Map\MapConfigs\582.txt" />
+    <None Include="Assets\Map\MapConfigs\583.txt" />
+    <None Include="Assets\Map\MapConfigs\584.txt" />
+    <None Include="Assets\Map\MapConfigs\585.txt" />
+    <None Include="Assets\Map\MapConfigs\586.txt" />
+    <None Include="Assets\Map\MapConfigs\587.txt" />
+    <None Include="Assets\Map\MapConfigs\588.txt" />
+    <None Include="Assets\Map\MapConfigs\589.txt" />
+    <None Include="Assets\Map\MapConfigs\59.txt" />
+    <None Include="Assets\Map\MapConfigs\590.txt" />
+    <None Include="Assets\Map\MapConfigs\591.txt" />
+    <None Include="Assets\Map\MapConfigs\592.txt" />
+    <None Include="Assets\Map\MapConfigs\593.txt" />
+    <None Include="Assets\Map\MapConfigs\594.txt" />
+    <None Include="Assets\Map\MapConfigs\595.txt" />
+    <None Include="Assets\Map\MapConfigs\596.txt" />
+    <None Include="Assets\Map\MapConfigs\597.txt" />
+    <None Include="Assets\Map\MapConfigs\598.txt" />
+    <None Include="Assets\Map\MapConfigs\599.txt" />
+    <None Include="Assets\Map\MapConfigs\6.txt" />
+    <None Include="Assets\Map\MapConfigs\60.txt" />
+    <None Include="Assets\Map\MapConfigs\600.txt" />
+    <None Include="Assets\Map\MapConfigs\601.txt" />
+    <None Include="Assets\Map\MapConfigs\602.txt" />
+    <None Include="Assets\Map\MapConfigs\603.txt" />
+    <None Include="Assets\Map\MapConfigs\604.txt" />
+    <None Include="Assets\Map\MapConfigs\605.txt" />
+    <None Include="Assets\Map\MapConfigs\606.txt" />
+    <None Include="Assets\Map\MapConfigs\607.txt" />
+    <None Include="Assets\Map\MapConfigs\608.txt" />
+    <None Include="Assets\Map\MapConfigs\609.txt" />
+    <None Include="Assets\Map\MapConfigs\61.txt" />
+    <None Include="Assets\Map\MapConfigs\610.txt" />
+    <None Include="Assets\Map\MapConfigs\611.txt" />
+    <None Include="Assets\Map\MapConfigs\612.txt" />
+    <None Include="Assets\Map\MapConfigs\613.txt" />
+    <None Include="Assets\Map\MapConfigs\614.txt" />
+    <None Include="Assets\Map\MapConfigs\615.txt" />
+    <None Include="Assets\Map\MapConfigs\616.txt" />
+    <None Include="Assets\Map\MapConfigs\617.txt" />
+    <None Include="Assets\Map\MapConfigs\618.txt" />
+    <None Include="Assets\Map\MapConfigs\619.txt" />
+    <None Include="Assets\Map\MapConfigs\62.txt" />
+    <None Include="Assets\Map\MapConfigs\620.txt" />
+    <None Include="Assets\Map\MapConfigs\621.txt" />
+    <None Include="Assets\Map\MapConfigs\622.txt" />
+    <None Include="Assets\Map\MapConfigs\623.txt" />
+    <None Include="Assets\Map\MapConfigs\624.txt" />
+    <None Include="Assets\Map\MapConfigs\625.txt" />
+    <None Include="Assets\Map\MapConfigs\626.txt" />
+    <None Include="Assets\Map\MapConfigs\627.txt" />
+    <None Include="Assets\Map\MapConfigs\628.txt" />
+    <None Include="Assets\Map\MapConfigs\629.txt" />
+    <None Include="Assets\Map\MapConfigs\63.txt" />
+    <None Include="Assets\Map\MapConfigs\630.txt" />
+    <None Include="Assets\Map\MapConfigs\631.txt" />
+    <None Include="Assets\Map\MapConfigs\632.txt" />
+    <None Include="Assets\Map\MapConfigs\633.txt" />
+    <None Include="Assets\Map\MapConfigs\634.txt" />
+    <None Include="Assets\Map\MapConfigs\635.txt" />
+    <None Include="Assets\Map\MapConfigs\636.txt" />
+    <None Include="Assets\Map\MapConfigs\637.txt" />
+    <None Include="Assets\Map\MapConfigs\638.txt" />
+    <None Include="Assets\Map\MapConfigs\639.txt" />
+    <None Include="Assets\Map\MapConfigs\64.txt" />
+    <None Include="Assets\Map\MapConfigs\640.txt" />
+    <None Include="Assets\Map\MapConfigs\641.txt" />
+    <None Include="Assets\Map\MapConfigs\642.txt" />
+    <None Include="Assets\Map\MapConfigs\643.txt" />
+    <None Include="Assets\Map\MapConfigs\644.txt" />
+    <None Include="Assets\Map\MapConfigs\645.txt" />
+    <None Include="Assets\Map\MapConfigs\646.txt" />
+    <None Include="Assets\Map\MapConfigs\647.txt" />
+    <None Include="Assets\Map\MapConfigs\648.txt" />
+    <None Include="Assets\Map\MapConfigs\649.txt" />
+    <None Include="Assets\Map\MapConfigs\65.txt" />
+    <None Include="Assets\Map\MapConfigs\650.txt" />
+    <None Include="Assets\Map\MapConfigs\651.txt" />
+    <None Include="Assets\Map\MapConfigs\652.txt" />
+    <None Include="Assets\Map\MapConfigs\653.txt" />
+    <None Include="Assets\Map\MapConfigs\654.txt" />
+    <None Include="Assets\Map\MapConfigs\655.txt" />
+    <None Include="Assets\Map\MapConfigs\656.txt" />
+    <None Include="Assets\Map\MapConfigs\657.txt" />
+    <None Include="Assets\Map\MapConfigs\658.txt" />
+    <None Include="Assets\Map\MapConfigs\659.txt" />
+    <None Include="Assets\Map\MapConfigs\66.txt" />
+    <None Include="Assets\Map\MapConfigs\660.txt" />
+    <None Include="Assets\Map\MapConfigs\661.txt" />
+    <None Include="Assets\Map\MapConfigs\662.txt" />
+    <None Include="Assets\Map\MapConfigs\663.txt" />
+    <None Include="Assets\Map\MapConfigs\664.txt" />
+    <None Include="Assets\Map\MapConfigs\665.txt" />
+    <None Include="Assets\Map\MapConfigs\666.txt" />
+    <None Include="Assets\Map\MapConfigs\667.txt" />
+    <None Include="Assets\Map\MapConfigs\668.txt" />
+    <None Include="Assets\Map\MapConfigs\669.txt" />
+    <None Include="Assets\Map\MapConfigs\67.txt" />
+    <None Include="Assets\Map\MapConfigs\670.txt" />
+    <None Include="Assets\Map\MapConfigs\671.txt" />
+    <None Include="Assets\Map\MapConfigs\672.txt" />
+    <None Include="Assets\Map\MapConfigs\673.txt" />
+    <None Include="Assets\Map\MapConfigs\674.txt" />
+    <None Include="Assets\Map\MapConfigs\675.txt" />
+    <None Include="Assets\Map\MapConfigs\676.txt" />
+    <None Include="Assets\Map\MapConfigs\677.txt" />
+    <None Include="Assets\Map\MapConfigs\678.txt" />
+    <None Include="Assets\Map\MapConfigs\679.txt" />
+    <None Include="Assets\Map\MapConfigs\68.txt" />
+    <None Include="Assets\Map\MapConfigs\680.txt" />
+    <None Include="Assets\Map\MapConfigs\681.txt" />
+    <None Include="Assets\Map\MapConfigs\682.txt" />
+    <None Include="Assets\Map\MapConfigs\683.txt" />
+    <None Include="Assets\Map\MapConfigs\684.txt" />
+    <None Include="Assets\Map\MapConfigs\685.txt" />
+    <None Include="Assets\Map\MapConfigs\686.txt" />
+    <None Include="Assets\Map\MapConfigs\687.txt" />
+    <None Include="Assets\Map\MapConfigs\688.txt" />
+    <None Include="Assets\Map\MapConfigs\689.txt" />
+    <None Include="Assets\Map\MapConfigs\69.txt" />
+    <None Include="Assets\Map\MapConfigs\690.txt" />
+    <None Include="Assets\Map\MapConfigs\691.txt" />
+    <None Include="Assets\Map\MapConfigs\692.txt" />
+    <None Include="Assets\Map\MapConfigs\693.txt" />
+    <None Include="Assets\Map\MapConfigs\694.txt" />
+    <None Include="Assets\Map\MapConfigs\695.txt" />
+    <None Include="Assets\Map\MapConfigs\696.txt" />
+    <None Include="Assets\Map\MapConfigs\697.txt" />
+    <None Include="Assets\Map\MapConfigs\698.txt" />
+    <None Include="Assets\Map\MapConfigs\699.txt" />
+    <None Include="Assets\Map\MapConfigs\7.txt" />
+    <None Include="Assets\Map\MapConfigs\70.txt" />
+    <None Include="Assets\Map\MapConfigs\700.txt" />
+    <None Include="Assets\Map\MapConfigs\701.txt" />
+    <None Include="Assets\Map\MapConfigs\702.txt" />
+    <None Include="Assets\Map\MapConfigs\703.txt" />
+    <None Include="Assets\Map\MapConfigs\704.txt" />
+    <None Include="Assets\Map\MapConfigs\705.txt" />
+    <None Include="Assets\Map\MapConfigs\706.txt" />
+    <None Include="Assets\Map\MapConfigs\707.txt" />
+    <None Include="Assets\Map\MapConfigs\708.txt" />
+    <None Include="Assets\Map\MapConfigs\709.txt" />
+    <None Include="Assets\Map\MapConfigs\71.txt" />
+    <None Include="Assets\Map\MapConfigs\710.txt" />
+    <None Include="Assets\Map\MapConfigs\711.txt" />
+    <None Include="Assets\Map\MapConfigs\712.txt" />
+    <None Include="Assets\Map\MapConfigs\713.txt" />
+    <None Include="Assets\Map\MapConfigs\714.txt" />
+    <None Include="Assets\Map\MapConfigs\715.txt" />
+    <None Include="Assets\Map\MapConfigs\716.txt" />
+    <None Include="Assets\Map\MapConfigs\717.txt" />
+    <None Include="Assets\Map\MapConfigs\718.txt" />
+    <None Include="Assets\Map\MapConfigs\719.txt" />
+    <None Include="Assets\Map\MapConfigs\72.txt" />
+    <None Include="Assets\Map\MapConfigs\720.txt" />
+    <None Include="Assets\Map\MapConfigs\721.txt" />
+    <None Include="Assets\Map\MapConfigs\722.txt" />
+    <None Include="Assets\Map\MapConfigs\723.txt" />
+    <None Include="Assets\Map\MapConfigs\724.txt" />
+    <None Include="Assets\Map\MapConfigs\725.txt" />
+    <None Include="Assets\Map\MapConfigs\726.txt" />
+    <None Include="Assets\Map\MapConfigs\727.txt" />
+    <None Include="Assets\Map\MapConfigs\728.txt" />
+    <None Include="Assets\Map\MapConfigs\729.txt" />
+    <None Include="Assets\Map\MapConfigs\73.txt" />
+    <None Include="Assets\Map\MapConfigs\730.txt" />
+    <None Include="Assets\Map\MapConfigs\731.txt" />
+    <None Include="Assets\Map\MapConfigs\732.txt" />
+    <None Include="Assets\Map\MapConfigs\733.txt" />
+    <None Include="Assets\Map\MapConfigs\734.txt" />
+    <None Include="Assets\Map\MapConfigs\735.txt" />
+    <None Include="Assets\Map\MapConfigs\736.txt" />
+    <None Include="Assets\Map\MapConfigs\737.txt" />
+    <None Include="Assets\Map\MapConfigs\738.txt" />
+    <None Include="Assets\Map\MapConfigs\739.txt" />
+    <None Include="Assets\Map\MapConfigs\74.txt" />
+    <None Include="Assets\Map\MapConfigs\740.txt" />
+    <None Include="Assets\Map\MapConfigs\741.txt" />
+    <None Include="Assets\Map\MapConfigs\742.txt" />
+    <None Include="Assets\Map\MapConfigs\743.txt" />
+    <None Include="Assets\Map\MapConfigs\744.txt" />
+    <None Include="Assets\Map\MapConfigs\745.txt" />
+    <None Include="Assets\Map\MapConfigs\746.txt" />
+    <None Include="Assets\Map\MapConfigs\747.txt" />
+    <None Include="Assets\Map\MapConfigs\748.txt" />
+    <None Include="Assets\Map\MapConfigs\749.txt" />
+    <None Include="Assets\Map\MapConfigs\75.txt" />
+    <None Include="Assets\Map\MapConfigs\750.txt" />
+    <None Include="Assets\Map\MapConfigs\751.txt" />
+    <None Include="Assets\Map\MapConfigs\752.txt" />
+    <None Include="Assets\Map\MapConfigs\753.txt" />
+    <None Include="Assets\Map\MapConfigs\754.txt" />
+    <None Include="Assets\Map\MapConfigs\755.txt" />
+    <None Include="Assets\Map\MapConfigs\756.txt" />
+    <None Include="Assets\Map\MapConfigs\757.txt" />
+    <None Include="Assets\Map\MapConfigs\758.txt" />
+    <None Include="Assets\Map\MapConfigs\759.txt" />
+    <None Include="Assets\Map\MapConfigs\76.txt" />
+    <None Include="Assets\Map\MapConfigs\760.txt" />
+    <None Include="Assets\Map\MapConfigs\761.txt" />
+    <None Include="Assets\Map\MapConfigs\762.txt" />
+    <None Include="Assets\Map\MapConfigs\763.txt" />
+    <None Include="Assets\Map\MapConfigs\764.txt" />
+    <None Include="Assets\Map\MapConfigs\765.txt" />
+    <None Include="Assets\Map\MapConfigs\766.txt" />
+    <None Include="Assets\Map\MapConfigs\767.txt" />
+    <None Include="Assets\Map\MapConfigs\768.txt" />
+    <None Include="Assets\Map\MapConfigs\769.txt" />
+    <None Include="Assets\Map\MapConfigs\77.txt" />
+    <None Include="Assets\Map\MapConfigs\770.txt" />
+    <None Include="Assets\Map\MapConfigs\771.txt" />
+    <None Include="Assets\Map\MapConfigs\772.txt" />
+    <None Include="Assets\Map\MapConfigs\773.txt" />
+    <None Include="Assets\Map\MapConfigs\774.txt" />
+    <None Include="Assets\Map\MapConfigs\775.txt" />
+    <None Include="Assets\Map\MapConfigs\776.txt" />
+    <None Include="Assets\Map\MapConfigs\777.txt" />
+    <None Include="Assets\Map\MapConfigs\778.txt" />
+    <None Include="Assets\Map\MapConfigs\779.txt" />
+    <None Include="Assets\Map\MapConfigs\78.txt" />
+    <None Include="Assets\Map\MapConfigs\780.txt" />
+    <None Include="Assets\Map\MapConfigs\781.txt" />
+    <None Include="Assets\Map\MapConfigs\782.txt" />
+    <None Include="Assets\Map\MapConfigs\783.txt" />
+    <None Include="Assets\Map\MapConfigs\784.txt" />
+    <None Include="Assets\Map\MapConfigs\785.txt" />
+    <None Include="Assets\Map\MapConfigs\786.txt" />
+    <None Include="Assets\Map\MapConfigs\787.txt" />
+    <None Include="Assets\Map\MapConfigs\788.txt" />
+    <None Include="Assets\Map\MapConfigs\789.txt" />
+    <None Include="Assets\Map\MapConfigs\79.txt" />
+    <None Include="Assets\Map\MapConfigs\790.txt" />
+    <None Include="Assets\Map\MapConfigs\791.txt" />
+    <None Include="Assets\Map\MapConfigs\792.txt" />
+    <None Include="Assets\Map\MapConfigs\793.txt" />
+    <None Include="Assets\Map\MapConfigs\794.txt" />
+    <None Include="Assets\Map\MapConfigs\795.txt" />
+    <None Include="Assets\Map\MapConfigs\796.txt" />
+    <None Include="Assets\Map\MapConfigs\797.txt" />
+    <None Include="Assets\Map\MapConfigs\798.txt" />
+    <None Include="Assets\Map\MapConfigs\799.txt" />
+    <None Include="Assets\Map\MapConfigs\8.txt" />
+    <None Include="Assets\Map\MapConfigs\80.txt" />
+    <None Include="Assets\Map\MapConfigs\800.txt" />
+    <None Include="Assets\Map\MapConfigs\801.txt" />
+    <None Include="Assets\Map\MapConfigs\802.txt" />
+    <None Include="Assets\Map\MapConfigs\803.txt" />
+    <None Include="Assets\Map\MapConfigs\804.txt" />
+    <None Include="Assets\Map\MapConfigs\805.txt" />
+    <None Include="Assets\Map\MapConfigs\806.txt" />
+    <None Include="Assets\Map\MapConfigs\807.txt" />
+    <None Include="Assets\Map\MapConfigs\808.txt" />
+    <None Include="Assets\Map\MapConfigs\809.txt" />
+    <None Include="Assets\Map\MapConfigs\81.txt" />
+    <None Include="Assets\Map\MapConfigs\810.txt" />
+    <None Include="Assets\Map\MapConfigs\811.txt" />
+    <None Include="Assets\Map\MapConfigs\812.txt" />
+    <None Include="Assets\Map\MapConfigs\813.txt" />
+    <None Include="Assets\Map\MapConfigs\814.txt" />
+    <None Include="Assets\Map\MapConfigs\815.txt" />
+    <None Include="Assets\Map\MapConfigs\816.txt" />
+    <None Include="Assets\Map\MapConfigs\817.txt" />
+    <None Include="Assets\Map\MapConfigs\818.txt" />
+    <None Include="Assets\Map\MapConfigs\819.txt" />
+    <None Include="Assets\Map\MapConfigs\82.txt" />
+    <None Include="Assets\Map\MapConfigs\820.txt" />
+    <None Include="Assets\Map\MapConfigs\821.txt" />
+    <None Include="Assets\Map\MapConfigs\822.txt" />
+    <None Include="Assets\Map\MapConfigs\823.txt" />
+    <None Include="Assets\Map\MapConfigs\824.txt" />
+    <None Include="Assets\Map\MapConfigs\825.txt" />
+    <None Include="Assets\Map\MapConfigs\826.txt" />
+    <None Include="Assets\Map\MapConfigs\827.txt" />
+    <None Include="Assets\Map\MapConfigs\828.txt" />
+    <None Include="Assets\Map\MapConfigs\829.txt" />
+    <None Include="Assets\Map\MapConfigs\83.txt" />
+    <None Include="Assets\Map\MapConfigs\830.txt" />
+    <None Include="Assets\Map\MapConfigs\831.txt" />
+    <None Include="Assets\Map\MapConfigs\832.txt" />
+    <None Include="Assets\Map\MapConfigs\833.txt" />
+    <None Include="Assets\Map\MapConfigs\834.txt" />
+    <None Include="Assets\Map\MapConfigs\835.txt" />
+    <None Include="Assets\Map\MapConfigs\836.txt" />
+    <None Include="Assets\Map\MapConfigs\837.txt" />
+    <None Include="Assets\Map\MapConfigs\838.txt" />
+    <None Include="Assets\Map\MapConfigs\839.txt" />
+    <None Include="Assets\Map\MapConfigs\84.txt" />
+    <None Include="Assets\Map\MapConfigs\840.txt" />
+    <None Include="Assets\Map\MapConfigs\841.txt" />
+    <None Include="Assets\Map\MapConfigs\842.txt" />
+    <None Include="Assets\Map\MapConfigs\843.txt" />
+    <None Include="Assets\Map\MapConfigs\844.txt" />
+    <None Include="Assets\Map\MapConfigs\845.txt" />
+    <None Include="Assets\Map\MapConfigs\846.txt" />
+    <None Include="Assets\Map\MapConfigs\847.txt" />
+    <None Include="Assets\Map\MapConfigs\848.txt" />
+    <None Include="Assets\Map\MapConfigs\849.txt" />
+    <None Include="Assets\Map\MapConfigs\85.txt" />
+    <None Include="Assets\Map\MapConfigs\850.txt" />
+    <None Include="Assets\Map\MapConfigs\851.txt" />
+    <None Include="Assets\Map\MapConfigs\852.txt" />
+    <None Include="Assets\Map\MapConfigs\853.txt" />
+    <None Include="Assets\Map\MapConfigs\854.txt" />
+    <None Include="Assets\Map\MapConfigs\855.txt" />
+    <None Include="Assets\Map\MapConfigs\856.txt" />
+    <None Include="Assets\Map\MapConfigs\857.txt" />
+    <None Include="Assets\Map\MapConfigs\858.txt" />
+    <None Include="Assets\Map\MapConfigs\859.txt" />
+    <None Include="Assets\Map\MapConfigs\86.txt" />
+    <None Include="Assets\Map\MapConfigs\860.txt" />
+    <None Include="Assets\Map\MapConfigs\861.txt" />
+    <None Include="Assets\Map\MapConfigs\862.txt" />
+    <None Include="Assets\Map\MapConfigs\863.txt" />
+    <None Include="Assets\Map\MapConfigs\864.txt" />
+    <None Include="Assets\Map\MapConfigs\865.txt" />
+    <None Include="Assets\Map\MapConfigs\866.txt" />
+    <None Include="Assets\Map\MapConfigs\867.txt" />
+    <None Include="Assets\Map\MapConfigs\868.txt" />
+    <None Include="Assets\Map\MapConfigs\869.txt" />
+    <None Include="Assets\Map\MapConfigs\87.txt" />
+    <None Include="Assets\Map\MapConfigs\870.txt" />
+    <None Include="Assets\Map\MapConfigs\871.txt" />
+    <None Include="Assets\Map\MapConfigs\872.txt" />
+    <None Include="Assets\Map\MapConfigs\873.txt" />
+    <None Include="Assets\Map\MapConfigs\874.txt" />
+    <None Include="Assets\Map\MapConfigs\875.txt" />
+    <None Include="Assets\Map\MapConfigs\876.txt" />
+    <None Include="Assets\Map\MapConfigs\877.txt" />
+    <None Include="Assets\Map\MapConfigs\878.txt" />
+    <None Include="Assets\Map\MapConfigs\879.txt" />
+    <None Include="Assets\Map\MapConfigs\88.txt" />
+    <None Include="Assets\Map\MapConfigs\880.txt" />
+    <None Include="Assets\Map\MapConfigs\881.txt" />
+    <None Include="Assets\Map\MapConfigs\882.txt" />
+    <None Include="Assets\Map\MapConfigs\883.txt" />
+    <None Include="Assets\Map\MapConfigs\884.txt" />
+    <None Include="Assets\Map\MapConfigs\885.txt" />
+    <None Include="Assets\Map\MapConfigs\886.txt" />
+    <None Include="Assets\Map\MapConfigs\887.txt" />
+    <None Include="Assets\Map\MapConfigs\888.txt" />
+    <None Include="Assets\Map\MapConfigs\889.txt" />
+    <None Include="Assets\Map\MapConfigs\89.txt" />
+    <None Include="Assets\Map\MapConfigs\890.txt" />
+    <None Include="Assets\Map\MapConfigs\891.txt" />
+    <None Include="Assets\Map\MapConfigs\892.txt" />
+    <None Include="Assets\Map\MapConfigs\893.txt" />
+    <None Include="Assets\Map\MapConfigs\894.txt" />
+    <None Include="Assets\Map\MapConfigs\895.txt" />
+    <None Include="Assets\Map\MapConfigs\896.txt" />
+    <None Include="Assets\Map\MapConfigs\897.txt" />
+    <None Include="Assets\Map\MapConfigs\898.txt" />
+    <None Include="Assets\Map\MapConfigs\899.txt" />
+    <None Include="Assets\Map\MapConfigs\9.txt" />
+    <None Include="Assets\Map\MapConfigs\90.txt" />
+    <None Include="Assets\Map\MapConfigs\900.txt" />
+    <None Include="Assets\Map\MapConfigs\901.txt" />
+    <None Include="Assets\Map\MapConfigs\902.txt" />
+    <None Include="Assets\Map\MapConfigs\903.txt" />
+    <None Include="Assets\Map\MapConfigs\904.txt" />
+    <None Include="Assets\Map\MapConfigs\905.txt" />
+    <None Include="Assets\Map\MapConfigs\906.txt" />
+    <None Include="Assets\Map\MapConfigs\907.txt" />
+    <None Include="Assets\Map\MapConfigs\908.txt" />
+    <None Include="Assets\Map\MapConfigs\909.txt" />
+    <None Include="Assets\Map\MapConfigs\91.txt" />
+    <None Include="Assets\Map\MapConfigs\910.txt" />
+    <None Include="Assets\Map\MapConfigs\911.txt" />
+    <None Include="Assets\Map\MapConfigs\912.txt" />
+    <None Include="Assets\Map\MapConfigs\913.txt" />
+    <None Include="Assets\Map\MapConfigs\914.txt" />
+    <None Include="Assets\Map\MapConfigs\915.txt" />
+    <None Include="Assets\Map\MapConfigs\916.txt" />
+    <None Include="Assets\Map\MapConfigs\917.txt" />
+    <None Include="Assets\Map\MapConfigs\918.txt" />
+    <None Include="Assets\Map\MapConfigs\919.txt" />
+    <None Include="Assets\Map\MapConfigs\92.txt" />
+    <None Include="Assets\Map\MapConfigs\920.txt" />
+    <None Include="Assets\Map\MapConfigs\921.txt" />
+    <None Include="Assets\Map\MapConfigs\922.txt" />
+    <None Include="Assets\Map\MapConfigs\923.txt" />
+    <None Include="Assets\Map\MapConfigs\924.txt" />
+    <None Include="Assets\Map\MapConfigs\925.txt" />
+    <None Include="Assets\Map\MapConfigs\926.txt" />
+    <None Include="Assets\Map\MapConfigs\927.txt" />
+    <None Include="Assets\Map\MapConfigs\928.txt" />
+    <None Include="Assets\Map\MapConfigs\929.txt" />
+    <None Include="Assets\Map\MapConfigs\93.txt" />
+    <None Include="Assets\Map\MapConfigs\930.txt" />
+    <None Include="Assets\Map\MapConfigs\931.txt" />
+    <None Include="Assets\Map\MapConfigs\932.txt" />
+    <None Include="Assets\Map\MapConfigs\933.txt" />
+    <None Include="Assets\Map\MapConfigs\934.txt" />
+    <None Include="Assets\Map\MapConfigs\935.txt" />
+    <None Include="Assets\Map\MapConfigs\936.txt" />
+    <None Include="Assets\Map\MapConfigs\937.txt" />
+    <None Include="Assets\Map\MapConfigs\938.txt" />
+    <None Include="Assets\Map\MapConfigs\939.txt" />
+    <None Include="Assets\Map\MapConfigs\94.txt" />
+    <None Include="Assets\Map\MapConfigs\940.txt" />
+    <None Include="Assets\Map\MapConfigs\941.txt" />
+    <None Include="Assets\Map\MapConfigs\942.txt" />
+    <None Include="Assets\Map\MapConfigs\943.txt" />
+    <None Include="Assets\Map\MapConfigs\944.txt" />
+    <None Include="Assets\Map\MapConfigs\945.txt" />
+    <None Include="Assets\Map\MapConfigs\946.txt" />
+    <None Include="Assets\Map\MapConfigs\947.txt" />
+    <None Include="Assets\Map\MapConfigs\948.txt" />
+    <None Include="Assets\Map\MapConfigs\949.txt" />
+    <None Include="Assets\Map\MapConfigs\95.txt" />
+    <None Include="Assets\Map\MapConfigs\950.txt" />
+    <None Include="Assets\Map\MapConfigs\951.txt" />
+    <None Include="Assets\Map\MapConfigs\952.txt" />
+    <None Include="Assets\Map\MapConfigs\953.txt" />
+    <None Include="Assets\Map\MapConfigs\954.txt" />
+    <None Include="Assets\Map\MapConfigs\955.txt" />
+    <None Include="Assets\Map\MapConfigs\956.txt" />
+    <None Include="Assets\Map\MapConfigs\957.txt" />
+    <None Include="Assets\Map\MapConfigs\958.txt" />
+    <None Include="Assets\Map\MapConfigs\959.txt" />
+    <None Include="Assets\Map\MapConfigs\96.txt" />
+    <None Include="Assets\Map\MapConfigs\960.txt" />
+    <None Include="Assets\Map\MapConfigs\961.txt" />
+    <None Include="Assets\Map\MapConfigs\962.txt" />
+    <None Include="Assets\Map\MapConfigs\963.txt" />
+    <None Include="Assets\Map\MapConfigs\964.txt" />
+    <None Include="Assets\Map\MapConfigs\965.txt" />
+    <None Include="Assets\Map\MapConfigs\966.txt" />
+    <None Include="Assets\Map\MapConfigs\967.txt" />
+    <None Include="Assets\Map\MapConfigs\968.txt" />
+    <None Include="Assets\Map\MapConfigs\969.txt" />
+    <None Include="Assets\Map\MapConfigs\97.txt" />
+    <None Include="Assets\Map\MapConfigs\970.txt" />
+    <None Include="Assets\Map\MapConfigs\971.txt" />
+    <None Include="Assets\Map\MapConfigs\972.txt" />
+    <None Include="Assets\Map\MapConfigs\973.txt" />
+    <None Include="Assets\Map\MapConfigs\974.txt" />
+    <None Include="Assets\Map\MapConfigs\975.txt" />
+    <None Include="Assets\Map\MapConfigs\976.txt" />
+    <None Include="Assets\Map\MapConfigs\977.txt" />
+    <None Include="Assets\Map\MapConfigs\978.txt" />
+    <None Include="Assets\Map\MapConfigs\979.txt" />
+    <None Include="Assets\Map\MapConfigs\98.txt" />
+    <None Include="Assets\Map\MapConfigs\980.txt" />
+    <None Include="Assets\Map\MapConfigs\981.txt" />
+    <None Include="Assets\Map\MapConfigs\982.txt" />
+    <None Include="Assets\Map\MapConfigs\983.txt" />
+    <None Include="Assets\Map\MapConfigs\984.txt" />
+    <None Include="Assets\Map\MapConfigs\985.txt" />
+    <None Include="Assets\Map\MapConfigs\986.txt" />
+    <None Include="Assets\Map\MapConfigs\987.txt" />
+    <None Include="Assets\Map\MapConfigs\988.txt" />
+    <None Include="Assets\Map\MapConfigs\989.txt" />
+    <None Include="Assets\Map\MapConfigs\99.txt" />
+    <None Include="Assets\Map\MapConfigs\990.txt" />
+    <None Include="Assets\Map\MapConfigs\991.txt" />
+    <None Include="Assets\Map\MapConfigs\992.txt" />
+    <None Include="Assets\Map\MapConfigs\993.txt" />
+    <None Include="Assets\Map\MapConfigs\994.txt" />
+    <None Include="Assets\Map\MapConfigs\995.txt" />
+    <None Include="Assets\Map\MapConfigs\996.txt" />
+    <None Include="Assets\Map\MapConfigs\997.txt" />
+    <None Include="Assets\Map\MapConfigs\998.txt" />
+    <None Include="Assets\Map\MapConfigs\999.txt" />
+    <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryCommon.uss" />
+    <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryDark.uss" />
+    <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryLight.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageAddFromUrlField.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageDetails.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageGroup.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageItem.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageList.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageManagerToolbar.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageManagerWindow.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageSearchToolbar.uxml" />
+    <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\PackageStatusBar.uxml" />
+    <None Include="Packages\com.unity.textmeshpro\Editor Resources\Shaders\TMP_Properties.cginc" />
+    <None Include="Packages\com.unity.textmeshpro\Editor Resources\Shaders\TMP_SDF Internal SSD.shader" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>

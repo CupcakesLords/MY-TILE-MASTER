@@ -63,4 +63,15 @@ public class GameEventSystem : MonoBehaviour
         }
         return 0;
     }
+
+    public Func<int, int, int> onRefresh;
+
+    public int Refresh(int layer, int direction)
+    {
+        if(onRefresh != null)
+        {
+            return onRefresh(layer, direction);
+        }
+        return 0;
+    }
 }

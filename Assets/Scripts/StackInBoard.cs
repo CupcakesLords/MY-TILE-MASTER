@@ -74,16 +74,9 @@ public class StackInBoard
         }
         for(int i = 0; i < 3; i++)                                                        //remove those tiles from the list(they still exist)
             chosenTile.Remove(NeedRemoving[i]);
-        
-        for (int i = 0; i < 3; i++)                                                       //destroy those tiles
-            GameEventSystem.current.Match_Destroy(NeedRemoving[i]);
-        int iterator3 = 0;
-        foreach(GameObject i in chosenTile)                                               //rearrange the bar
-        {
-            GameEventSystem.current.RearrangeBar(i, iterator3);
-            iterator3++;
-        }
-        
+         
+        BoardManager.instance.Delete(chosenTile, NeedRemoving);                           //destroy those tiles then rearrange the bar
+
         return result;
     }
 

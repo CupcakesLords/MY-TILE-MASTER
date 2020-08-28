@@ -12,7 +12,7 @@ public class GameCamera : MonoBehaviour
         tile = board.GetComponent<SpriteRenderer>();
 
         float width = tile.bounds.size.x * 8;
-        float height = tile.bounds.size.y * 10;
+        float height = tile.bounds.size.y * 12;
 
         float screenRatio = (float)Screen.width / (float)Screen.height;
         float targetRatio = width / height;

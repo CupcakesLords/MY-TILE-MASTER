@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TileInGame : MonoBehaviour
+public class TileInGame : MonoBehaviour, IPointerDownHandler
 {
     private int bar_layer = 30000;
     private int layer;
@@ -16,9 +17,9 @@ public class TileInGame : MonoBehaviour
     private bool isMoving = false;
     private IEnumerator mover;
 
-    public IEnumerator MoveToCoroutine(Transform targ, Vector3 pos, float dur)
+    private IEnumerator MoveToCoroutine(Transform targ, Vector3 pos, float dur)
     {
-        isMoving = true; GetComponent<BoxCollider2D>().enabled = false;
+        isMoving = true; GetComponent<BoxCollider2D>().enabled = false; gameObject.tag = "Moving";
 
         float t = 0f;
         Vector3 start = targ.position;
@@ -32,14 +33,34 @@ public class TileInGame : MonoBehaviour
 
         targ.position = pos;
 
-        isMoving = false; GetComponent<BoxCollider2D>().enabled = true;
+        isMoving = false; GetComponent<BoxCollider2D>().enabled = true; gameObject.tag = "Untagged";
+
         doneMoving = true;
+    }
+
+    private IEnumerator WitherAway(float dur)
+    {
+        yield return StartCoroutine(Wither(0.3f));
+        Destroy(gameObject);
+    }
+
+    private IEnumerator Wither(float dur)
+    {
+        float t = 0f;
+        while (t < dur && transform.localScale.x >= 0)
+        {
+            t += Time.deltaTime;
+            transform.localScale -= new Vector3(1f, 1f, 0) * (t * t / dur);
+            yield return null;
+        }
     }
 
     void Start()
     {
         layer = GetComponent<SpriteRenderer>().sortingOrder;
         originX = transform.position.x; originY = transform.position.y;
+
+        GameEventSystem.current.onRefresh += UponRefresh;
     }
 
     private int UponOtherTileSelected(GameObject id, int pivot)
@@ -63,7 +84,7 @@ public class TileInGame : MonoBehaviour
         if (identity == gameObject && selected)
         {
             BoardManager.instance.OnTileDestroy();
-            Destroy(gameObject);
+            StartCoroutine(WitherAway(0.3f));
         }
         return 0;
     }
@@ -104,12 +125,39 @@ public class TileInGame : MonoBehaviour
         GameEventSystem.current.onDestroy_RearrangeBar -= UponMatchRearrange;
         GameEventSystem.current.onUndo -= UponUndoReset;
 
+        GameEventSystem.current.onRefresh += UponRefresh;
+
         GetComponent<SpriteRenderer>().sortingOrder = layer;
 
         return 0;
     }
 
-    private void OnMouseDown() //TILE IS SELECTED
+    private int UponRefresh(int layer, int direction)
+    {
+        if (selected) return 0;
+        int dif = GetComponent<SpriteRenderer>().sortingOrder - layer;
+        if (!(dif >= 0 && dif < 100)) return 0;
+
+        Vector3 temp = transform.position;
+        if (direction == 0)
+            transform.position -= new Vector3(15, 0, 0); //to the left
+        else if (direction == 1)
+            transform.position += new Vector3(0, 15, 0); //go up
+        else if (direction == 2)
+            transform.position += new Vector3(15, 0, 0); //to the right
+
+        if (isMoving)
+        {
+            StopCoroutine(mover);
+            isMoving = false;
+        }
+        mover = MoveToCoroutine(transform, temp, speed);
+        StartCoroutine(mover);
+
+        return 0;
+    }
+
+    public void OnPointerDown(PointerEventData eventData) //TILE IS SELECTED
     {
         if (selected)
             return;
@@ -122,6 +170,8 @@ public class TileInGame : MonoBehaviour
         GameEventSystem.current.onMatch_Destroy += UponMatchDestruction;
         GameEventSystem.current.onDestroy_RearrangeBar += UponMatchRearrange;
         GameEventSystem.current.onUndo += UponUndoReset;
+
+        GameEventSystem.current.onRefresh -= UponRefresh;
 
         if (doneMoving == true)
             doneMoving = false;
@@ -136,12 +186,9 @@ public class TileInGame : MonoBehaviour
         yield return new WaitUntil(() => doneMoving == true);
         doneMoving = false;                                                               //not sure how this line works but it stays because it is working
         BoardManager.instance.bar.CheckForMatch();
-        //yield return new WaitUntil(() => doneMoving == true);                           //not sure how this line works but it stays because it is working
-        
-        if (BoardManager.instance.CheckIfLost())
-            Debug.Log("Lost!");
-        if(BoardManager.instance.CheckIfWon())
-            Debug.Log("Won!");
+
+        BoardManager.instance.CheckIfLost();
+        BoardManager.instance.CheckIfWon();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -183,5 +230,7 @@ public class TileInGame : MonoBehaviour
             GameEventSystem.current.onDestroy_RearrangeBar -= UponMatchRearrange;
             GameEventSystem.current.onUndo -= UponUndoReset;
         }
+        else
+            GameEventSystem.current.onRefresh -= UponRefresh;
     }
 }
