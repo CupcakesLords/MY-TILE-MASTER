@@ -6,6 +6,11 @@ public class StackInBoard
 {
     LinkedList<GameObject> chosenTile = new LinkedList<GameObject>();
 
+    public int Available()
+    {
+        return 7 - chosenTile.Count;
+    }
+
     public bool IsFull()
     {
         return chosenTile.Count >= 7;

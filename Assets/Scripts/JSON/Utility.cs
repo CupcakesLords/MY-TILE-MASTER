@@ -10,8 +10,12 @@ public static class Utility
         GameLevelObject result = new GameLevelObject();
         result.level = level;
 
-        string line = System.IO.File.ReadAllText("Assets/Map/MapConfigs/" + level + ".txt");
-        
+        //string line = System.IO.File.ReadAllText("Assets/Resources/MapConfigs/" + level + ".txt");
+
+        //Load a text file (Assets/Resources/MapConfigs/1.txt)
+        TextAsset textFile = Resources.Load<TextAsset>("MapConfigs/" + level);
+        string line = textFile.text;
+
         result.pos = JsonUtility.FromJson<Level>(line);
 
         List<int> t = line.AllIndexesOf("t");

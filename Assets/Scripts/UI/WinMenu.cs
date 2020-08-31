@@ -74,6 +74,11 @@ public class WinMenu : MonoBehaviour
         BoardManager.instance.Refresh();
     }
 
+    public void Hint()
+    {
+        BoardManager.instance.Hint();
+    }
+
     void Start()
     {
         GameEventSystem.current.onLevelClear += PopUpWin;

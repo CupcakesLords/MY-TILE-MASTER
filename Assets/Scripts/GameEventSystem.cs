@@ -10,12 +10,12 @@ public class GameEventSystem : MonoBehaviour
     {
         current = this;
     }
-    
+
     public Func<GameObject, int, int> onSelectedTileMove;
 
     public int SelectedTileMove(GameObject id, int pivot)
     {
-        if(onSelectedTileMove != null)
+        if (onSelectedTileMove != null)
         {
             return onSelectedTileMove(id, pivot);
         }
@@ -26,7 +26,7 @@ public class GameEventSystem : MonoBehaviour
 
     public int Match_Destroy(GameObject identity)
     {
-        if(onMatch_Destroy != null)
+        if (onMatch_Destroy != null)
         {
             return onMatch_Destroy(identity);
         }
@@ -38,7 +38,7 @@ public class GameEventSystem : MonoBehaviour
     public int RearrangeBar(GameObject identity, int pos)
     {
         if (onDestroy_RearrangeBar != null)
-           return onDestroy_RearrangeBar(identity, pos);
+            return onDestroy_RearrangeBar(identity, pos);
         return 0;
     }
 
@@ -46,7 +46,7 @@ public class GameEventSystem : MonoBehaviour
 
     public int PopUpWinUI(int something)
     {
-        if(onLevelClear != null)
+        if (onLevelClear != null)
         {
             return onLevelClear(something);
         }
@@ -57,7 +57,7 @@ public class GameEventSystem : MonoBehaviour
 
     public int Undo(Record r)
     {
-        if(onUndo != null)
+        if (onUndo != null)
         {
             return onUndo(r);
         }
@@ -68,9 +68,20 @@ public class GameEventSystem : MonoBehaviour
 
     public int Refresh(int layer, int direction)
     {
-        if(onRefresh != null)
+        if (onRefresh != null)
         {
             return onRefresh(layer, direction);
+        }
+        return 0;
+    }
+
+    public Func<GameObject, int> onHint;
+    
+    public int Hint(GameObject obj)
+    {
+        if(onHint != null)
+        {
+            return onHint(obj);
         }
         return 0;
     }

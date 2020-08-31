@@ -17,6 +17,10 @@ public class BoardManager : MonoBehaviour
     public float xBar, yBar;
     private List<Record> histoire;
 
+    public int bar_layer = 30000;
+    public float speed = 0.3f;
+    public float destruction_speed = 0.3f;
+
     void Start()
     {
         instance = GetComponent<BoardManager>();
@@ -54,7 +58,6 @@ public class BoardManager : MonoBehaviour
         for(int i = 0; i < total; i++)
         {
             GameObject newTile = Instantiate(tile, new Vector3(currentLevel.tiles[i].x, currentLevel.tiles[i].y, 0), tile.transform.rotation);
-            //gameTiles[i] = newTile;
             
             newTile.transform.parent = transform;
             newTile.GetComponent<SpriteRenderer>().sortingOrder = (int)currentLevel.tiles[i].z; 
@@ -88,13 +91,14 @@ public class BoardManager : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)                                                                               //destroy those tiles
             GameEventSystem.current.Match_Destroy(NeedRemoving[i]);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(destruction_speed);
         int iterator3 = 0;
         foreach (GameObject i in chosenTile)                                                                      //rearrange the bar
         {
             GameEventSystem.current.RearrangeBar(i, iterator3);
             iterator3++;
         }
+        CheckIfWon();
     }
 
     public void OnTileDestroy()
@@ -169,6 +173,74 @@ public class BoardManager : MonoBehaviour
 
     public void Refresh()
     {
+        int[] TileRemain = new int[characters.Count];
+        for (int i = 0; i < TileRemain.Length; i++)
+            TileRemain[i] = 0;
+        
+        for (int i = 0; i < gameTiles.Length; i++)
+        {
+            if (!gameTiles[i])                                                                                                   //tile destroyed
+                continue;
+            else if (gameTiles[i].transform.position.y == yBar || gameTiles[i].tag == "Moving")                                  //tile selected or is moving
+                continue;
+            else
+            {
+                Sprite temp = gameTiles[i].GetComponent<SpriteRenderer>().sprite;
+                for (int j = 0; j < characters.Count; j++)
+                {
+                    if (characters[j] == temp)
+                    {
+                        TileRemain[j]++;
+                        break;
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < gameTiles.Length; i++)
+        {
+            if (!gameTiles[i])                                                                                                   //destroyed
+                continue;
+            else if (gameTiles[i].transform.position.y == yBar || gameTiles[i].tag == "Moving")                                  //selected or moving
+                continue;
+            else
+            {
+                int rand = Random.Range(0, characters.Count);
+
+                while (true)
+                {
+                    if (TileRemain[rand] == 0)
+                    {
+                        rand = Random.Range(0, characters.Count); continue;
+                    }
+                    else
+                        break;
+                }
+                TileRemain[rand] -= 1;
+
+                Sprite newSprite = characters[rand];
+                gameTiles[i].GetComponent<SpriteRenderer>().sprite = newSprite;
+            }
+        }
+
+        List<int> layers = new List<int>();
+        List<float> parent = currentLevel.pos.p;
+        foreach (L i in currentLevel.pos.l)
+        {
+            layers.Add((int)parent[2] + (int)i.p[2]);
+        }
+        int direction = 0;
+        foreach (int i in layers)
+        {
+            GameEventSystem.current.Refresh(i, direction);
+            direction++;
+            if (direction > 2)
+                direction = 0;
+        }
+    }
+
+    public void RefreshBeta()
+    {
         int TileRemain = 0;
         int[] TileTaken = new int[characters.Count];
         for (int i = 0; i < TileTaken.Length; i++)
@@ -185,10 +257,10 @@ public class BoardManager : MonoBehaviour
             else if (gameTiles[i].transform.position.y == yBar || gameTiles[i].tag == "Moving")                                  //tile selected or is moving
             {
                 TileRemain++;
-                Sprite temp = gameTiles[i].GetComponent<SpriteRenderer>().sprite; 
-                for(int j = 0; j < characters.Count; j++)
+                Sprite temp = gameTiles[i].GetComponent<SpriteRenderer>().sprite;
+                for (int j = 0; j < characters.Count; j++)
                 {
-                    if(characters[j] == temp)
+                    if (characters[j] == temp)
                     {
                         TileTaken[j]++;
                         break;
@@ -203,6 +275,13 @@ public class BoardManager : MonoBehaviour
 
         if (TileRemain == 0)
             return;
+
+        Debug.Log("Tile remain: " + TileRemain);
+        Debug.Log("Selected: ");
+        for (int i = 0; i < TileTaken.Length; i++)
+        {
+            Debug.Log(i + ": " + TileTaken[i]);
+        }
 
         int rationTimes = (TileRemain / 3);
         int[] TileRation = new int[characters.Count];
@@ -264,5 +343,94 @@ public class BoardManager : MonoBehaviour
             if (direction > 2)
                 direction = 0;
         }
+    }
+
+    public void Hint()
+    {
+        int[] TileTaken = new int[characters.Count];
+        for (int i = 0; i < TileTaken.Length; i++)
+            TileTaken[i] = 0;
+
+        List<GameObject> tempo = new List<GameObject>();
+
+        for (int i = 0; i < gameTiles.Length; i++)
+        {
+            if (!gameTiles[i])                                                                                                   //tile destroyed
+            {
+                continue;
+            }
+            else if (gameTiles[i].transform.position.y == yBar || gameTiles[i].tag == "Moving")                                  //tile selected or is moving
+            {
+                Sprite temp = gameTiles[i].GetComponent<SpriteRenderer>().sprite;
+                for (int j = 0; j < characters.Count; j++)
+                {
+                    if (characters[j] == temp)
+                    {
+                        TileTaken[j]++;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                //if(CheckIfClickable(gameTiles[i]))
+                    tempo.Add(gameTiles[i]);
+            }
+        }
+
+        int available = bar.Available();
+        
+        for (int i = 0; i < TileTaken.Length; i++) //characters[i] is sprite, TileTaken[i] is number of said sprite selected
+        {
+            int need = 3 - TileTaken[i];
+            if (need > available)
+                continue;
+            List<GameObject> tip = new List<GameObject>();
+            
+            foreach (GameObject j in tempo)
+            {
+                if(j.GetComponent<SpriteRenderer>().sprite == characters[i])
+                {
+                    tip.Add(j);
+                }
+            }
+
+            if (tip.Count == 0)
+                continue;
+            if (tip.Count < need) //dig deeper cause there is not enough tile to form a match
+            {
+                
+            }
+            if (tip.Count >= need)  //this sprite has enough tile available to form a match
+            {
+                foreach(GameObject j in tip)
+                {
+                    if (need == 0)
+                        break;
+                    GameEventSystem.current.Hint(j); 
+                    need = need - 1;
+                }
+                break;
+            }
+        }
+    }
+
+    private bool CheckIfClickable(GameObject t)
+    {
+        for (int i = 0; i < gameTiles.Length; i++)
+        {
+            if (!gameTiles[i]) //tile destroyed
+                continue;
+            
+            if (t.transform.position.x - 0.5 <= gameTiles[i].transform.position.x && gameTiles[i].transform.position.x <= t.transform.position.x + 0.5)
+            {
+                if (t.transform.position.y - 0.5 <= gameTiles[i].transform.position.y && gameTiles[i].transform.position.y <= t.transform.position.y + 0.5)
+                {
+                    if (t.GetComponent<SpriteRenderer>().sortingOrder < gameTiles[i].GetComponent<SpriteRenderer>().sortingOrder)
+                        return false;
+                }
+            }
+        }
+        return true;
     }
 }
