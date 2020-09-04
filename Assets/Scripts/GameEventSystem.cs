@@ -85,4 +85,15 @@ public class GameEventSystem : MonoBehaviour
         }
         return 0;
     }
+
+    public Func<int, int> onTimeControl;
+
+    public int TimeControl(int action)
+    {
+        if(onTimeControl != null)
+        {
+            return onTimeControl(action);
+        }
+        return 0;
+    }
 }

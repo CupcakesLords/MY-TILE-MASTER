@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AFramework.UI;
 
 public class BoardManager : MonoBehaviour
 {
-    public static BoardManager instance;
+    public static BoardManager instance;                 //CONSTANT
   
     public List<Sprite> characters = new List<Sprite>(); //add from editor
     public GameObject tile;                              //add from editor
@@ -14,26 +15,64 @@ public class BoardManager : MonoBehaviour
     private GameObject[] gameTiles;
     private int count;
     public StackInBoard bar;
-    public float xBar, yBar;
+
+    [HideInInspector]
+    public float xBar, yBar;                             //CONSTANT
+
     private List<Record> histoire;
 
-    public int bar_layer = 30000;
-    public float speed = 0.3f;
-    public float destruction_speed = 0.3f;
+    public int bar_layer = 30000;                        //CONSTANT AND FINAL
+    public float speed = 0.3f;                           //CONSTANT AND FINAL
+    public float destruction_speed = 0.3f;               //CONSTANT AND FINAL
+
+    [HideInInspector]
+    public int coin = 0;
+    [HideInInspector]
+    public int star = 3;
+
+    private bool AlreadyLost = false;
+    private bool AlreadyWon = false;
+
+    private int CurrentLevel = 1;
 
     void Start()
     {
         instance = GetComponent<BoardManager>();
-        
-        currentLevel = Utility.ReadGameLevelFromAsset(GlobalStatic.PlayerChoice);
-
         xBar = -(Bar.GetComponent<SpriteRenderer>().bounds.size.x / 2) + (tile.GetComponent<SpriteRenderer>().bounds.size.x / 1.5f);  yBar = Bar.transform.position.y  + (Bar.GetComponent<SpriteRenderer>().bounds.size.y / 7.75f);
-        
-        bar = new StackInBoard();
+    }
 
+    public void RewindLost()
+    {
+        AlreadyLost = false;
+    }
+
+    public void RefreshMemory()
+    {
+        for (int i = 0; i < gameTiles.Length; i++)
+        {
+            if (!gameTiles[i]) //already destroyed                                                                                    
+                continue;
+            else
+                Destroy(gameTiles[i]);
+        }
+        Bar.SetActive(false);
+        currentLevel = null;
+        gameTiles = null;
+        bar = null;
+        histoire = null;
+        coin = 0; star = 3;
+        AlreadyLost = false;
+        AlreadyWon = false;
+        CurrentLevel = 1;
+    }
+
+    public void StartNewGame(int Level)
+    {
+        Bar.SetActive(true); CurrentLevel = Level;
+        currentLevel = Utility.ReadGameLevelFromAsset(Level);
+        bar = new StackInBoard();
         histoire = new List<Record>();
- 
-        CreateBoard(); 
+        CreateBoard();
     }
 
     private void CreateBoard()
@@ -108,9 +147,13 @@ public class BoardManager : MonoBehaviour
 
     public bool CheckIfLost()
     {
+        if (AlreadyLost)
+            return true;
         if(bar.IsFull())
         {
-            GameEventSystem.current.PopUpWinUI(0);
+            object[] param = new object[1];
+            param[0] = CurrentLevel;
+            CanvasManager.Push(GlobalInfor.LoseMenu, param); AlreadyLost = true; GameEventSystem.current.TimeControl(1);
         }
         return bar.IsFull();
     }
@@ -122,9 +165,13 @@ public class BoardManager : MonoBehaviour
 
     public bool CheckIfWon()
     {
-        if(count == 0)
+        if (AlreadyWon)
+            return true;
+        if (count == 0)
         {
-            GameEventSystem.current.PopUpWinUI(1);
+            object[] param = new object[1];
+            param[0] = CurrentLevel;
+            CanvasManager.Push(GlobalInfor.WinMenu, param); AlreadyWon = true; GameEventSystem.current.TimeControl(1);
         }
         return count == 0;
     }
@@ -276,8 +323,6 @@ public class BoardManager : MonoBehaviour
         if (TileRemain == 0)
             return;
 
-        Debug.Log("Tile remain: " + TileRemain);
-        Debug.Log("Selected: ");
         for (int i = 0; i < TileTaken.Length; i++)
         {
             Debug.Log(i + ": " + TileTaken[i]);

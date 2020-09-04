@@ -58,6 +58,23 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
 
         GameEventSystem.current.onRefresh += UponRefresh;
         GameEventSystem.current.onHint += UponHint;
+
+        Vector3 temp = transform.position;
+        int direction = Random.Range(0, 3);
+        if (direction == 0)
+            transform.position -= new Vector3(15, 0, 0); //to the left
+        else if (direction == 1)
+            transform.position += new Vector3(0, 15, 0); //go up
+        else if (direction == 2)
+            transform.position += new Vector3(15, 0, 0); //to the right
+
+        if (isMoving)
+        {
+            StopCoroutine(mover);
+            isMoving = false;
+        }
+        mover = MoveToCoroutine(transform, temp, BoardManager.instance.speed);
+        StartCoroutine(mover);
     }
 
     private int UponOtherTileSelected(GameObject id, int pivot)

@@ -1,91 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using AFramework.UI;
 
-public class WinMenu : MonoBehaviour
+public class WinMenu : BaseUIMenu
 {
-    public GameObject WinUI;
-    public GameObject LoseUI;
-    public Button _Undo;
-    public Button _Refresh;
-    private float Refresh_Timer = 0;
+    public Button _Next;
+    public Button _Replay;
+    public Button _Back;
+    public Text _Level;
+    public Text _Star;
+    int Level = 1;
 
-    private void Update()
+    void Start()
     {
-        if (Refresh_Timer > 0)
-            Refresh_Timer -= Time.deltaTime;
-    }
-
-    private int PopUpWin(int UI)
-    {
-        if (UI == 1)
-        {
-            WinUI.SetActive(true); _Undo.interactable = false; _Refresh.interactable = false;
-        }
-        else if(UI == 0)
-        {
-            LoseUI.SetActive(true); _Undo.interactable = false; _Refresh.interactable = false;
-            Time.timeScale = 0;
-        }
-        return 0;
-    }
-
-    public void Reload()
-    {
-        WinUI.SetActive(false); Time.timeScale = 1; _Undo.interactable = true; _Refresh.interactable = true;
-        LoseUI.SetActive(false);
-        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        _Back.onClick.AddListener(BackToMain);
+        _Replay.onClick.AddListener(Replay);
+        _Next.onClick.AddListener(NextLevel);
     }
 
     public void NextLevel()
     {
-        WinUI.SetActive(false); Time.timeScale = 1; _Undo.interactable = true; _Refresh.interactable = true;
-        LoseUI.SetActive(false); 
-        GlobalStatic.PlayerChoice += 1;
-        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
-    }
-
-    public void Revive()
-    {
-        WinUI.SetActive(false); Time.timeScale = 1; _Undo.interactable = true; _Refresh.interactable = true;
-        LoseUI.SetActive(false); 
-        BoardManager.instance.UndoRecord();
-        BoardManager.instance.UndoRecord();
-        BoardManager.instance.UndoRecord();
+        BoardManager.instance.RefreshMemory();
+        Pop();
+        CanvasManager.Pop(GlobalInfor.GamePlayMenu);
+        object[] param = new object[1];
+        param[0] = Level + 1;
+        CanvasManager.Push(GlobalInfor.GamePlayMenu, param); GameEventSystem.current.TimeControl(3);
     }
 
     public void BackToMain()
     {
-        SceneManager.LoadScene("MainMenu");
+        BoardManager.instance.RefreshMemory();
+        Pop();
+        CanvasManager.Pop(GlobalInfor.GamePlayMenu); 
+        CanvasManager.Push(GlobalInfor.MainMenu, null); GameEventSystem.current.TimeControl(3);
     }
 
-    public void Undo()
+    public void Replay()
     {
-        BoardManager.instance.UndoRecord();
+        BoardManager.instance.RefreshMemory();
+        Pop();
+        CanvasManager.Pop(GlobalInfor.GamePlayMenu);
+        object[] param = new object[1];
+        param[0] = Level;
+        CanvasManager.Push(GlobalInfor.GamePlayMenu, param); GameEventSystem.current.TimeControl(3);
     }
 
-    public void Refresh()
+    override
+    public void Init(object[] initParams)
     {
-        if (Refresh_Timer > 0)
-            return;
-        Refresh_Timer = 3f;
-        BoardManager.instance.Refresh();
-    }
-
-    public void Hint()
-    {
-        BoardManager.instance.Hint();
-    }
-
-    void Start()
-    {
-        GameEventSystem.current.onLevelClear += PopUpWin;
-    }
-
-    void OnDestroy()
-    {
-        GameEventSystem.current.onLevelClear -= PopUpWin;
+        if (initParams == null)
+            Level = 1;
+        else
+        {
+            object[] param = initParams;
+            Level = (int)param[0];
+        }
+        _Level.text = "LEVEL " + Level + " PASSED!";
+        _Star.text = BoardManager.instance.star + " Star";
     }
 }
