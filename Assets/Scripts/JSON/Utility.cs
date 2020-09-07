@@ -110,5 +110,17 @@ public static class Utility
             indexes.Add(index);
         }
     }
+
+    public static CheckPoint ReadCheckPoint()
+    {
+        CheckPoint result = new CheckPoint();
+
+        TextAsset textFile = Resources.Load<TextAsset>("CheckPoint/CheckPointData");
+        string line = textFile.text;
+
+        result = JsonUtility.FromJson<CheckPoint>(line);
+
+        return result;
+    }
 }
 

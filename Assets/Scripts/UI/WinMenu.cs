@@ -35,7 +35,7 @@ public class WinMenu : BaseUIMenu
         BoardManager.instance.RefreshMemory();
         Pop();
         CanvasManager.Pop(GlobalInfor.GamePlayMenu); 
-        CanvasManager.Push(GlobalInfor.MainMenu, null); GameEventSystem.current.TimeControl(3);
+        CanvasManager.Push(GlobalInfor.FrontMenu, null); GameEventSystem.current.TimeControl(3);
     }
 
     public void Replay()

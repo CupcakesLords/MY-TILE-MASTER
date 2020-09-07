@@ -132,6 +132,7 @@
     <Compile Include="Assets\Scripts\GameCamera.cs" />
     <Compile Include="Assets\Scripts\GameEventSystem.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\JSON\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\JSON\GameLevelObject.cs" />
     <Compile Include="Assets\Scripts\JSON\Level.cs" />
     <Compile Include="Assets\Scripts\JSON\Utility.cs" />
@@ -141,13 +142,16 @@
     <Compile Include="Assets\Scripts\StackInBoard.cs" />
     <Compile Include="Assets\Scripts\TileInGame.cs" />
     <Compile Include="Assets\Scripts\TimeBar.cs" />
+    <Compile Include="Assets\Scripts\UI\FrontMenu.cs" />
     <Compile Include="Assets\Scripts\UI\GamePlayMenu.cs" />
     <Compile Include="Assets\Scripts\UI\GlobalInfor.cs" />
     <Compile Include="Assets\Scripts\UI\LoseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\MapMenu.cs" />
     <Compile Include="Assets\Scripts\UI\OldMenu.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\WinMenu.cs" />
+    <Compile Include="Assets\Scripts\WorldButton.cs" />
     <None Include="Assets\Resources\MapConfigs\655.txt" />
     <None Include="Assets\Resources\MapConfigs\529.txt" />
     <None Include="Assets\Resources\MapConfigs\830.txt" />
@@ -691,6 +695,7 @@
     <None Include="Assets\Resources\MapConfigs\870.txt" />
     <None Include="Assets\Resources\MapConfigs\261.txt" />
     <None Include="Assets\Resources\MapConfigs\94.txt" />
+    <None Include="Assets\Resources\CheckPoint\CheckPointData.txt" />
     <None Include="Assets\Resources\MapConfigs\864.txt" />
     <None Include="Assets\Resources\MapConfigs\352.txt" />
     <None Include="Assets\Resources\MapConfigs\330.txt" />

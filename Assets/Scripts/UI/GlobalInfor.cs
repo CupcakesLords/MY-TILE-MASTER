@@ -12,4 +12,6 @@ public class GlobalInfor : SingletonMono<GlobalInfor>
     public const string MainMenu = "MainMenu";
     public const string GamePlayMenu = "GamePlayMenu";
     public const string PauseMenu = "PauseMenu";
+    public const string MapMenu = "MapMenu";
+    public const string FrontMenu = "FrontMenu";
 }

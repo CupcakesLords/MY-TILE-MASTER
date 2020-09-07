@@ -8,7 +8,7 @@ public class GameManager : ManualSingletonMono<GameManager>
 {
     void Start()
     {
-        CanvasManager.Init(GlobalInfor.UIDefaultPath, GlobalInfor.MainMenu);
+        CanvasManager.Init(GlobalInfor.UIDefaultPath, GlobalInfor.FrontMenu);
     }
 
     void Update()
