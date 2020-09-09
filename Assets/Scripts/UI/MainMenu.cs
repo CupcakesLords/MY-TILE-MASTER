@@ -17,17 +17,17 @@ public class MainMenu : BaseUIMenu
 
     private float x;
     private float y;
-    private float gap = 200;
+    private float gap = 100; //200
 
     private GameObject[,] buttons;
 
     void Awake()
     {
-        //x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.35f;
-        //y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.35f;
+        x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.35f;
+        y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.35f;
 
-        x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.7f;
-        y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.65f;
+        //x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.7f;
+        //y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.65f;
 
         Exit.onClick.AddListener(() => PopOut());
     }
@@ -37,7 +37,8 @@ public class MainMenu : BaseUIMenu
         Pop();
         object[] param = new object[1];
         param[0] = Level;
-        CanvasManager.Pop(GlobalInfor.MapMenu); GameEventSystem.current.ControlMap(false);
+
+        CanvasManager.Pop(GlobalInfor.MapMenu); 
         CanvasManager.Push(GlobalInfor.GamePlayMenu, param);
     }
 

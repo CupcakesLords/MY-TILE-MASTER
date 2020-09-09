@@ -21,6 +21,6 @@ public class FrontMenu : BaseUIMenu
     public void GotoMap()
     {
         Pop();
-        CanvasManager.Push(GlobalInfor.MapMenu, null); GameEventSystem.current.ControlMap(true);
+        CanvasManager.Push(GlobalInfor.MapMenu, null); 
     }
 }

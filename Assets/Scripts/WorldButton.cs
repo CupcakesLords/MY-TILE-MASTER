@@ -37,7 +37,7 @@ public class WorldButton : MonoBehaviour
 
         CanvasManager.Push(GlobalInfor.MainMenu, param);
     }
-    
+
     private void OnMouseDown()
     {
         GotoActionPhase(World);

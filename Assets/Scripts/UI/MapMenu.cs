@@ -42,6 +42,6 @@ public class MapMenu : BaseUIMenu
     public void BackToFront()
     {
         Pop();
-        CanvasManager.Push(GlobalInfor.FrontMenu, null); GameEventSystem.current.ControlMap(false);
+        CanvasManager.Push(GlobalInfor.FrontMenu, null); 
     }
 }

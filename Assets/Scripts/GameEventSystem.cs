@@ -96,15 +96,4 @@ public class GameEventSystem : MonoBehaviour
         }
         return 0;
     }
-
-    public Func<bool, int> onControlMap;
-
-    public int ControlMap(bool active)
-    {
-        if(onControlMap != null)
-        {
-            return onControlMap(active);
-        }
-        return 0;
-    }
 }
