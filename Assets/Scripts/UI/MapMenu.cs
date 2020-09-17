@@ -8,11 +8,14 @@ public class MapMenu : BaseUIMenu
 {
     public Button Back;
 
+    public Button Skin;
+
     private CheckPoint lv;
 
     void Start()
     {
         Back.onClick.AddListener(() => BackToFront());
+        Skin.onClick.AddListener(() => ToSkinMenu());
 
         lv = Utility.ReadCheckPoint();
     }
@@ -43,5 +46,10 @@ public class MapMenu : BaseUIMenu
     {
         Pop();
         CanvasManager.Push(GlobalInfor.FrontMenu, null); 
+    }
+
+    public void ToSkinMenu()
+    {
+        CanvasManager.Push(GlobalInfor.SkinMenu, null);
     }
 }

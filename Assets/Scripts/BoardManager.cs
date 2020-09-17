@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AFramework.UI;
+using UnityEngine.UI;
 
 public class BoardManager : MonoBehaviour
 {
-    public static BoardManager instance;                 //CONSTANT
+    public static BoardManager instance;                                    //CONSTANT
   
-    public List<Sprite> characters = new List<Sprite>(); //add from editor
-    public GameObject tile;                              //add from editor
-    public GameObject Bar;                               //add from editor
+    private List<Sprite> characters = new List<Sprite>();
+    private List<Sprite> all_characters = new List<Sprite>();
+    public GameObject tile;                                                 //add from editor
+    public GameObject Bar;                                                  //add from editor
     
     private GameLevelObject currentLevel;
     private GameObject[] gameTiles;
@@ -17,13 +19,14 @@ public class BoardManager : MonoBehaviour
     public StackInBoard bar;
 
     [HideInInspector]
-    public float xBar, yBar;                             //CONSTANT
+    public float xBar, yBar;                                                //CONSTANT
 
     private List<Record> histoire;
 
-    public int bar_layer = 30000;                        //CONSTANT AND FINAL
-    public float speed = 0.3f;                           //CONSTANT AND FINAL
-    public float destruction_speed = 0.3f;               //CONSTANT AND FINAL
+    public int bar_layer = 30000;                                           //CONSTANT AND FINAL
+    public float speed = 0.3f;                                              //CONSTANT AND FINAL
+    public float destruction_speed = 0.3f;                                  //CONSTANT AND FINAL
+    public Image BG;                                                        //add from editor
 
     [HideInInspector]
     public int coin = 0;
@@ -37,8 +40,49 @@ public class BoardManager : MonoBehaviour
 
     void Start()
     {
+        for(int i = 1; i <= 20; i++)
+        {
+            all_characters.Add(Resources.Load<Sprite>("Sprites/temp/tiles/tile01/" + i));
+        }
+
         instance = GetComponent<BoardManager>();
         xBar = -(Bar.GetComponent<SpriteRenderer>().bounds.size.x / 2) + (tile.GetComponent<SpriteRenderer>().bounds.size.x / 1.5f);  yBar = Bar.transform.position.y  + (Bar.GetComponent<SpriteRenderer>().bounds.size.y / 7.75f);
+    }
+
+    public void ResetBG(int n)
+    {
+        if (n <= 0 || n > 3)
+            return;
+        BG.sprite = Resources.Load<Sprite>("Bundle/Game/BG/" + n);
+    }
+
+    public void ResetCharacter(int n) //n is number of themes
+    {
+        if (n <= 0 || n >= 6)
+            return;
+        all_characters.Clear();
+        for (int i = 1; i <= 20; i++)
+        {
+            all_characters.Add(Resources.Load<Sprite>("Sprites/temp/tiles/tile0" + n + "/" + i));
+        }
+
+        if (gameTiles != null) //playing
+        {
+            characters.Clear();
+            characters = all_characters.GetRange(0, 6);
+
+            for (int i = 0; i < gameTiles.Length; i++)
+            {
+                if (!gameTiles[i]) //already destroyed                                                                                    
+                    continue;
+                else
+                {
+                    string name = gameTiles[i].GetComponent<SpriteRenderer>().sprite.name;
+                    int id = int.Parse(name); id = id - 1;
+                    gameTiles[i].GetComponent<SpriteRenderer>().sprite = characters[id];
+                }
+            }
+        }
     }
 
     public void RewindLost()
@@ -68,8 +112,18 @@ public class BoardManager : MonoBehaviour
 
     public void StartNewGame(int Level)
     {
+        if (Level <= 0 || Level >= 1000)
+            return;
+
         Bar.SetActive(true); CurrentLevel = Level;
         currentLevel = Utility.ReadGameLevelFromAsset(Level);
+
+        // level time and number of tiles
+        GameEventSystem.current.SetTimeBar(120f, 30f, 60f, 90f);
+        characters.Clear();
+        characters = all_characters.GetRange(0, 6);
+        //
+
         bar = new StackInBoard();
         histoire = new List<Record>();
         CreateBoard();

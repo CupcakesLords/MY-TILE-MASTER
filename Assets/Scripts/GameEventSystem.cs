@@ -96,4 +96,15 @@ public class GameEventSystem : MonoBehaviour
         }
         return 0;
     }
+
+    public Func<float, float, float, float, int> onSetTimeBar;
+
+    public int SetTimeBar(float a, float b, float c, float d)
+    {
+        if(onSetTimeBar != null)
+        {
+            return onSetTimeBar(a, b, c, d);
+        }
+        return 0;
+    }
 }

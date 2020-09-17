@@ -1261,7 +1261,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 4cc600e8299020c4cba093da38e7cf58, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1306,12 +1306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8aad5fb826fa640bcd178e2ed5dde0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters:
-  - {fileID: 21300000, guid: 4d6ce90f538d4354b6345c28e56050e5, type: 3}
-  - {fileID: 21300000, guid: 714f493589c84536a453abbc7e873c6e, type: 3}
-  - {fileID: 21300000, guid: 23444e24f7654890b695116c83ae127b, type: 3}
-  - {fileID: 21300000, guid: b35bdca0184b491288cd0d60397449dd, type: 3}
-  - {fileID: 21300000, guid: a7bcbcbe22884980a97b45706ff33fb0, type: 3}
   tile: {fileID: 1006167172818549382, guid: 2993bc70a1f947a4abaee3c4215057e6, type: 3}
   Bar: {fileID: 2122458563}
   xBar: 0
@@ -1319,6 +1313,7 @@ MonoBehaviour:
   bar_layer: 30000
   speed: 0.3
   destruction_speed: 0.3
+  BG: {fileID: 1962067381}
   coin: 0
   star: 3
 --- !u!4 &2083338036

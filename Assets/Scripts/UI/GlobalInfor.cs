@@ -14,4 +14,7 @@ public class GlobalInfor : SingletonMono<GlobalInfor>
     public const string PauseMenu = "PauseMenu";
     public const string MapMenu = "MapMenu";
     public const string FrontMenu = "FrontMenu";
+    public const string SkinMenu = "SkinMenu";
+    public const string SkinCollectionSubMenu = "SkinCollectionSubMenu";
+    public const string ThemeCollectionSubMenu = "ThemeCollectionSubMenu";
 }

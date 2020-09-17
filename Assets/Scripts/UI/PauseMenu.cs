@@ -8,6 +8,7 @@ public class PauseMenu : BaseUIMenu
 {
     public Button _Continue;
     public Button _Restart;
+    public Button _Theme;
     public Button _Home;
     public Text _Level;
 
@@ -17,6 +18,12 @@ public class PauseMenu : BaseUIMenu
         _Continue.onClick.AddListener(Continue);
         _Restart.onClick.AddListener(Restart);
         _Home.onClick.AddListener(BackToHome);
+        _Theme.onClick.AddListener(ToTheme);
+    }
+
+    void ToTheme()
+    {
+        CanvasManager.Push(GlobalInfor.SkinMenu, null);
     }
 
     void Continue()

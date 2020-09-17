@@ -150,6 +150,9 @@
     <Compile Include="Assets\Scripts\UI\MapMenu.cs" />
     <Compile Include="Assets\Scripts\UI\OldMenu.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SkinUI\SkinCollectionSubMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SkinUI\SkinMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SkinUI\ThemeCollectionSubMenu.cs" />
     <Compile Include="Assets\Scripts\UI\WinMenu.cs" />
     <Compile Include="Assets\Scripts\WorldButton.cs" />
     <None Include="Assets\Resources\MapConfigs\655.txt" />

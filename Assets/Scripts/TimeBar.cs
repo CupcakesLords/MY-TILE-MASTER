@@ -14,7 +14,7 @@ public class TimeBar : MonoBehaviour
     List<float> star = new List<float>();
     int currentStar = 2;
 
-    void Start()
+    void Awake()
     {
         originalSize = mask.rectTransform.rect.width;
         float width = GetComponent<RectTransform>().rect.width;
@@ -25,13 +25,27 @@ public class TimeBar : MonoBehaviour
         Star[2].rectTransform.anchoredPosition = new Vector3((star[2] / time) * width - (width / 2), Star[2].rectTransform.anchoredPosition.y, 0);
 
         GameEventSystem.current.onTimeControl += Control;
+        GameEventSystem.current.onSetTimeBar += Set;
+    }
+
+    private int Set(float total, float star1, float star2, float star3)
+    {
+        time = total; current = total;
+        star.Clear();
+
+        float width = GetComponent<RectTransform>().rect.width;
+        star.Add(star1); star.Add(star2); star.Add(star3);
+
+        Star[0].rectTransform.anchoredPosition = new Vector3((star[0] / time) * width - (width / 2), Star[0].rectTransform.anchoredPosition.y, 0);
+        Star[1].rectTransform.anchoredPosition = new Vector3((star[1] / time) * width - (width / 2), Star[1].rectTransform.anchoredPosition.y, 0);
+        Star[2].rectTransform.anchoredPosition = new Vector3((star[2] / time) * width - (width / 2), Star[2].rectTransform.anchoredPosition.y, 0);
+
+        return 0;
     }
 
     private int Control(int action)
     {
-        if (action != 1 && action != 2 && action != 3)
-            return 0;
-        else if (action == 1)
+        if (action == 1)
             Pause();
         else if (action == 2)
             Resume();
@@ -83,5 +97,6 @@ public class TimeBar : MonoBehaviour
     private void OnDestroy()
     {
         GameEventSystem.current.onTimeControl -= Control;
+        GameEventSystem.current.onSetTimeBar -= Set;
     }
 }
