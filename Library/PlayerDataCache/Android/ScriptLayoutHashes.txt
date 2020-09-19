@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Projects/My tile master/TileMaster2.1.apk
+C:/Projects/My tile master/TileMaster2.4.apk
 SceneListBegin?
 Assets/Scenes/Game.unity
 SceneListEnd?
@@ -129,9 +129,9 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 cb4bbc31fa993ced04ed1ad68b672ccc Assembly-CSharp.dll:AFramework.IAP.IAPManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.IAP.IAPBaseWrapper
 4ed5ebe8d870b2593a4da403f50afa54 Assembly-CSharp.dll:AFramework.UI.HoldToScaleButton
-c7ae5cd2d4a53df1b66c5db9860e7d86 Assembly-CSharp.dll:.OldMenu
 b8a5e8091ab0b8861d2add371082c5e0 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GameManager
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.GameData
 51ca19bb85eb86136f114d790ffe41eb Assembly-CSharp.dll:AFramework.Ads.BaseAdapterConfig
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.Anim.AFBaseAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.UI.TMPHyperlink
@@ -140,11 +140,9 @@ b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.Analytics.TrackingManager
 7d4833f526e525a4f4aa725b02f44d66 Assembly-CSharp.dll:AFramework.Anim.AFSpineAutoAnim
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.Ads.BaseAdsAdapter
-73740c983ece2c41a4d6e228c4fb5c09 Assembly-CSharp.dll:.LevelSelector
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.UnityMainThreadDispatcher
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.WorldButton
-dc50b68a9e5f7089aedf58453f692e7b Assembly-CSharp.dll:.SkinCollectionSubMenu
+8d1e323931e8be6920aac0ae88eb6b07 Assembly-CSharp.dll:.SkinCollectionSubMenu
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.IAP.SimpleIAPSystemWrapper
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 447b699da5f324512ad8ca8a8b212606 Assembly-CSharp.dll:.MapMenu
@@ -192,7 +190,7 @@ b7588c4a07a19b65710b75ad5b50e2f6 Assembly-CSharp.dll:.SkinMenu
 048e145c27bbadd268764cfcb2c2a1d7 Assembly-CSharp.dll:.ImageAutoFit
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.Anim.AFUnityAnimator
 3e8b93f828cfd5848e9fde0dd9fcfff9 Assembly-CSharp.dll:AFramework.FrameworkGlobalConfig
-dc50b68a9e5f7089aedf58453f692e7b Assembly-CSharp.dll:.ThemeCollectionSubMenu
+8d1e323931e8be6920aac0ae88eb6b07 Assembly-CSharp.dll:.ThemeCollectionSubMenu
 dc50b68a9e5f7089aedf58453f692e7b Assembly-CSharp.dll:AFramework.UI.BaseUIMenu
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.UI.CanvasManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:AFramework.ObjectPool

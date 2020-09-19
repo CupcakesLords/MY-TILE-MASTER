@@ -38,9 +38,15 @@ public class BoardManager : MonoBehaviour
 
     private int CurrentLevel = 1;
 
+    //RESOURCES
+    private int totalSprites = 20;
+    private int totalThemes = 5;
+    private int totalBG = 20;
+    private int totalLevel = 1000;
+
     void Start()
     {
-        for(int i = 1; i <= 20; i++)
+        for(int i = 1; i <= totalSprites; i++)
         {
             all_characters.Add(Resources.Load<Sprite>("Sprites/temp/tiles/tile01/" + i));
         }
@@ -51,17 +57,19 @@ public class BoardManager : MonoBehaviour
 
     public void ResetBG(int n)
     {
-        if (n <= 0 || n > 3)
+        if (n <= 0 || n > totalBG)
             return;
+
         BG.sprite = Resources.Load<Sprite>("Bundle/Game/BG/" + n);
     }
 
-    public void ResetCharacter(int n) //n is number of themes
+    public void ResetCharacter(int n) 
     {
-        if (n <= 0 || n >= 6)
+        if (n <= 0 || n > totalThemes)
             return;
+
         all_characters.Clear();
-        for (int i = 1; i <= 20; i++)
+        for (int i = 1; i <= totalSprites; i++)
         {
             all_characters.Add(Resources.Load<Sprite>("Sprites/temp/tiles/tile0" + n + "/" + i));
         }
@@ -69,8 +77,8 @@ public class BoardManager : MonoBehaviour
         if (gameTiles != null) //playing
         {
             characters.Clear();
-            characters = all_characters.GetRange(0, 6);
-
+            characters = all_characters.GetRange(0, SpriteInUse(CurrentLevel));
+            
             for (int i = 0; i < gameTiles.Length; i++)
             {
                 if (!gameTiles[i]) //already destroyed                                                                                    
@@ -112,7 +120,7 @@ public class BoardManager : MonoBehaviour
 
     public void StartNewGame(int Level)
     {
-        if (Level <= 0 || Level >= 1000)
+        if (Level <= 0 || Level >= totalLevel)
             return;
 
         Bar.SetActive(true); CurrentLevel = Level;
@@ -120,13 +128,23 @@ public class BoardManager : MonoBehaviour
 
         // level time and number of tiles
         GameEventSystem.current.SetTimeBar(120f, 30f, 60f, 90f);
+
         characters.Clear();
-        characters = all_characters.GetRange(0, 6);
+        characters = all_characters.GetRange(0, SpriteInUse(Level));
         //
 
         bar = new StackInBoard();
         histoire = new List<Record>();
         CreateBoard();
+    }
+
+    private int SpriteInUse(int lv)
+    {
+        int result = (lv / 50) + 8;
+        if (result <= totalSprites)
+            return result;
+        else
+            return totalSprites;
     }
 
     private void CreateBoard()
