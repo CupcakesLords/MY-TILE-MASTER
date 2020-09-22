@@ -32,11 +32,17 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
         isMoving = false; GetComponent<BoxCollider2D>().enabled = true; gameObject.tag = "Untagged";
 
         doneMoving = true;
+
+        if(undoMoving)
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = layer;
+            undoMoving = false;
+        }
     }
 
     private IEnumerator WitherAway(float dur)
     {
-        yield return StartCoroutine(Wither(0.3f));
+        yield return StartCoroutine(Wither(BoardManager.instance.destruction_speed));
         Destroy(gameObject);
     }
 
@@ -51,30 +57,17 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    private void Awake()
+    {
+        GameEventSystem.current.onRefresh += UponRefresh;
+        GameEventSystem.current.onBackFromRefresh += UponBackFromRefresh;
+        GameEventSystem.current.onHint += UponHint;
+        originX = transform.position.x; originY = transform.position.y;
+    }
+
     void Start()
     {
         layer = GetComponent<SpriteRenderer>().sortingOrder;
-        originX = transform.position.x; originY = transform.position.y;
-
-        GameEventSystem.current.onRefresh += UponRefresh;
-        GameEventSystem.current.onHint += UponHint;
-
-        Vector3 temp = transform.position;
-        int direction = Random.Range(0, 3);
-        if (direction == 0)
-            transform.position -= new Vector3(15, 0, 0); //to the left
-        else if (direction == 1)
-            transform.position += new Vector3(0, 15, 0); //go up
-        else if (direction == 2)
-            transform.position += new Vector3(15, 0, 0); //to the right
-
-        if (isMoving)
-        {
-            StopCoroutine(mover);
-            isMoving = false;
-        }
-        mover = MoveToCoroutine(transform, temp, BoardManager.instance.speed);
-        StartCoroutine(mover);
     }
 
     private int UponOtherTileSelected(GameObject id, int pivot)
@@ -119,6 +112,8 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
         return 0;
     }
 
+    private bool undoMoving = false;
+
     private int UponUndoReset(Record r)
     {
         if (!selected) return 0;
@@ -140,35 +135,49 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
         GameEventSystem.current.onUndo -= UponUndoReset;
 
         GameEventSystem.current.onRefresh += UponRefresh;
+        GameEventSystem.current.onBackFromRefresh += UponBackFromRefresh;
         GameEventSystem.current.onHint += UponHint;
 
-        GetComponent<SpriteRenderer>().sortingOrder = layer;
+        undoMoving = true;
+        //GetComponent<SpriteRenderer>().sortingOrder = layer;
 
         return 0;
     }
 
+    private Vector3 cache;
+
     private int UponRefresh(int layer, int direction)
     {
-        if (selected) return 0;
+        if (selected || isMoving) return 0;
         int dif = GetComponent<SpriteRenderer>().sortingOrder - layer;
         if (!(dif >= 0 && dif < 100)) return 0;
 
-        Vector3 temp = transform.position;
+        cache = transform.position; //
+        
         if (direction == 0)
             transform.position -= new Vector3(15, 0, 0); //to the left
         else if (direction == 1)
             transform.position += new Vector3(0, 15, 0); //go up
         else if (direction == 2)
             transform.position += new Vector3(15, 0, 0); //to the right
+        
+        return 0;
+    }
+
+    private int UponBackFromRefresh(int layer, int direction)
+    {
+        if (selected || isMoving) return 0;
+        int dif = GetComponent<SpriteRenderer>().sortingOrder - layer;
+        if (!(dif >= 0 && dif < 100)) return 0;
 
         if (isMoving)
         {
             StopCoroutine(mover);
             isMoving = false;
         }
-        mover = MoveToCoroutine(transform, temp, BoardManager.instance.speed);
+        mover = MoveToCoroutine(transform, cache, 0.3f);
         StartCoroutine(mover);
-
+        
         return 0;
     }
 
@@ -188,7 +197,7 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
 
     private void PlayerClick()
     {
-        if (selected)
+        if (selected || isMoving)
             return;
         if (BoardManager.instance.CheckIfFull())
             return;
@@ -201,6 +210,7 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
         GameEventSystem.current.onUndo += UponUndoReset;
 
         GameEventSystem.current.onRefresh -= UponRefresh;
+        GameEventSystem.current.onBackFromRefresh -= UponBackFromRefresh;
         GameEventSystem.current.onHint -= UponHint;
 
         if (doneMoving == true)
@@ -262,6 +272,7 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
         else
         {
             GameEventSystem.current.onRefresh -= UponRefresh;
+            GameEventSystem.current.onBackFromRefresh -= UponBackFromRefresh;
             GameEventSystem.current.onHint -= UponHint;
         }
     }

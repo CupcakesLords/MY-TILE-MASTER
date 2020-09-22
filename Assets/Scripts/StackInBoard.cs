@@ -6,6 +6,22 @@ public class StackInBoard
 {
     LinkedList<GameObject> chosenTile = new LinkedList<GameObject>();
 
+    public void Darken(float a, float b, float c)
+    {
+        foreach(GameObject i in chosenTile)
+        {
+            i.GetComponent<SpriteRenderer>().material.color = new Color(a, b, c, 1f);
+        }
+    }
+
+    public void Lighten()
+    {
+        foreach (GameObject i in chosenTile)
+        {
+            i.GetComponent<SpriteRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1f);
+        }
+    }
+
     public int Available()
     {
         return 7 - chosenTile.Count;

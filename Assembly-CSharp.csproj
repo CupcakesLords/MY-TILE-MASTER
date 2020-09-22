@@ -140,6 +140,7 @@
     <Compile Include="Assets\Scripts\StackInBoard.cs" />
     <Compile Include="Assets\Scripts\TileInGame.cs" />
     <Compile Include="Assets\Scripts\TimeBar.cs" />
+    <Compile Include="Assets\Scripts\UI\EmptyMenu.cs" />
     <Compile Include="Assets\Scripts\UI\FrontMenu.cs" />
     <Compile Include="Assets\Scripts\UI\GameManager.cs" />
     <Compile Include="Assets\Scripts\UI\GamePlayMenu.cs" />

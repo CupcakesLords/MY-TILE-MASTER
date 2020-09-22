@@ -12,7 +12,8 @@ public class BoardManager : MonoBehaviour
     private List<Sprite> all_characters = new List<Sprite>();
     public GameObject tile;                                                 //add from editor
     public GameObject Bar;                                                  //add from editor
-    
+    public Image BG;                                                        //add from editor
+
     private GameLevelObject currentLevel;
     private GameObject[] gameTiles;
     private int count;
@@ -24,10 +25,9 @@ public class BoardManager : MonoBehaviour
     private List<Record> histoire;
 
     public int bar_layer = 30000;                                           //CONSTANT AND FINAL
-    public float speed = 0.3f;                                              //CONSTANT AND FINAL
-    public float destruction_speed = 0.3f;                                  //CONSTANT AND FINAL
-    public Image BG;                                                        //add from editor
-
+    public float speed = 0.375f;                                            //CONSTANT AND FINAL
+    public float destruction_speed = 0.375f;                                //CONSTANT AND FINAL
+  
     [HideInInspector]
     public int coin = 0;
     [HideInInspector]
@@ -125,7 +125,7 @@ public class BoardManager : MonoBehaviour
 
         Bar.SetActive(true); CurrentLevel = Level;
         currentLevel = Utility.ReadGameLevelFromAsset(Level);
-
+        
         // level time and number of tiles
         GameEventSystem.current.SetTimeBar(120f, 30f, 60f, 90f);
 
@@ -191,6 +191,8 @@ public class BoardManager : MonoBehaviour
 
             gameTiles[i] = newTile;
         }
+
+        RefreshAnimation();
     }
 
     public void Delete(LinkedList<GameObject> chosenTile, List<GameObject> NeedRemoving)
@@ -223,11 +225,32 @@ public class BoardManager : MonoBehaviour
             return true;
         if(bar.IsFull())
         {
-            object[] param = new object[1];
-            param[0] = CurrentLevel;
-            CanvasManager.Push(GlobalInfor.LoseMenu, param); AlreadyLost = true; GameEventSystem.current.TimeControl(1);
+            StartCoroutine(YouFuckingLost());
         }
         return bar.IsFull();
+    }
+
+    IEnumerator YouFuckingLost()
+    {
+        AlreadyLost = true; GameEventSystem.current.TimeControl(1);
+        CanvasManager.Push(GlobalInfor.EmptyMenu, null);
+
+        float t = 0f;
+        float start = 1f;
+        float v = 0.5f;
+        while (t < 0.5f)
+        {
+            t += Time.deltaTime;
+            bar.Darken((float)(start - v * t / 0.5), (float)(start - v * t / 0.5), (float)(start - v * t / 0.5));
+            yield return null;
+        }
+        bar.Darken(v, v, v);
+
+        CanvasManager.Pop(GlobalInfor.EmptyMenu);
+
+        object[] param = new object[1];
+        param[0] = CurrentLevel;
+        CanvasManager.Push(GlobalInfor.LoseMenu, param); 
     }
 
     public bool CheckIfFull()
@@ -342,12 +365,18 @@ public class BoardManager : MonoBehaviour
             }
         }
 
+        RefreshAnimation();
+    }
+
+    private void RefreshAnimation()
+    {
         List<int> layers = new List<int>();
         List<float> parent = currentLevel.pos.p;
         foreach (L i in currentLevel.pos.l)
         {
-            layers.Add((int)parent[2] + (int)i.p[2]);
+            layers.Add(Utility.CalculateBaseLayer((int)parent[2], (int)i.p[2]));
         }
+
         int direction = 0;
         foreach (int i in layers)
         {
@@ -356,112 +385,26 @@ public class BoardManager : MonoBehaviour
             if (direction > 2)
                 direction = 0;
         }
+        StartCoroutine(RefreshQueue(layers));
     }
-
-    public void RefreshBeta()
+    
+    IEnumerator RefreshQueue(List<int> layers)
     {
-        int TileRemain = 0;
-        int[] TileTaken = new int[characters.Count];
-        for (int i = 0; i < TileTaken.Length; i++)
-        {
-            TileTaken[i] = 0;
-        }
-
-        for (int i = 0; i < gameTiles.Length; i++)
-        {
-            if (!gameTiles[i])                                                                                                   //tile destroyed
-            {
-                continue;
-            }
-            else if (gameTiles[i].transform.position.y == yBar || gameTiles[i].tag == "Moving")                                  //tile selected or is moving
-            {
-                TileRemain++;
-                Sprite temp = gameTiles[i].GetComponent<SpriteRenderer>().sprite;
-                for (int j = 0; j < characters.Count; j++)
-                {
-                    if (characters[j] == temp)
-                    {
-                        TileTaken[j]++;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                TileRemain++;
-            }
-        }
-
-        if (TileRemain == 0)
-            return;
-
-        for (int i = 0; i < TileTaken.Length; i++)
-        {
-            Debug.Log(i + ": " + TileTaken[i]);
-        }
-
-        int rationTimes = (TileRemain / 3);
-        int[] TileRation = new int[characters.Count];
-        for (int i = 0; i < TileRation.Length; i++)
-        {
-            TileRation[i] = 0;
-        }
-        for (int i = 0; i < rationTimes; i++)
-        {
-            int rand = Random.Range(0, characters.Count);
-            TileRation[rand] += 3;
-        }
-        for (int i = 0; i < TileRation.Length; i++)
-        {
-            TileRation[i] = TileRation[i] - TileTaken[i];
-        }
-
-        for (int i = 0; i < gameTiles.Length; i++)
-        {
-            if (!gameTiles[i])                                                                                                   //destroyed
-            {
-                continue;
-            }
-            else if (gameTiles[i].transform.position.y == yBar || gameTiles[i].tag == "Moving")                                  //selected or moving
-            {
-                continue;
-            }
-            else
-            {
-                int rand = Random.Range(0, characters.Count);
-                
-                while (true)
-                {
-                    if (TileRation[rand] == 0)
-                    {
-                        rand = Random.Range(0, characters.Count); continue;
-                    }
-                    else
-                        break;
-                }
-                TileRation[rand] -= 1;
-             
-                Sprite newSprite = characters[rand];
-                gameTiles[i].GetComponent<SpriteRenderer>().sprite = newSprite;
-            }
-        }
-        
-        List<int> layers = new List<int>();
-        List<float> parent = currentLevel.pos.p;
-        foreach(L i in currentLevel.pos.l)
-        {
-            layers.Add((int)parent[2] + (int)i.p[2]);
-        }
+        CanvasManager.Push(GlobalInfor.EmptyMenu, null);
+        WaitForSeconds waitTime = new WaitForSeconds(0.075f);
         int direction = 0;
-        foreach(int i in layers)
+        foreach (int i in layers)
         {
-            GameEventSystem.current.Refresh(i, direction);
+            GameEventSystem.current.BackFromRefresh(i, direction);
             direction++;
             if (direction > 2)
                 direction = 0;
+            yield return waitTime;
         }
+        yield return new WaitForSeconds(0.3f);
+        CanvasManager.Pop(GlobalInfor.EmptyMenu);
     }
-
+    
     public void Hint()
     {
         int[] TileTaken = new int[characters.Count];

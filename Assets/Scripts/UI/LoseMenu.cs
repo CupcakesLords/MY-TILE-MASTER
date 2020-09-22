@@ -21,6 +21,7 @@ public class LoseMenu : BaseUIMenu
 
     public void Revive()
     {
+        BoardManager.instance.bar.Lighten();
         Pop();
         BoardManager.instance.UndoRecord();
         BoardManager.instance.UndoRecord();

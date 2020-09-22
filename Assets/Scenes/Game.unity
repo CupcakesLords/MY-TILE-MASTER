@@ -817,12 +817,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 1006167172818549382, guid: 2993bc70a1f947a4abaee3c4215057e6, type: 3}
   Bar: {fileID: 2122458563}
+  BG: {fileID: 1962067381}
   xBar: 0
   yBar: 0
   bar_layer: 30000
-  speed: 0.3
-  destruction_speed: 0.3
-  BG: {fileID: 1962067381}
+  speed: 0.375
+  destruction_speed: 0.375
   coin: 0
   star: 3
 --- !u!4 &2083338036
