@@ -5,12 +5,20 @@ using UnityEngine;
 public class GameData : AFramework.SingletonMono<GameData>, AFramework.ISaveData
 {
     #region save
+
     [System.Serializable]
     public class SaveData
     {
         public int level;
+        public int coin;
+        public int world;
+        public List<int> stars;
+        public int undo;
+        public int shuffle;
+        public int hint;
     }
-    SaveData mSaveData;
+
+    private SaveData mSaveData;
 
     public bool DataChanged { get; set; }
 
@@ -18,6 +26,9 @@ public class GameData : AFramework.SingletonMono<GameData>, AFramework.ISaveData
     {
         return mSaveData;
     }
+
+    public int GetLevel() { return mSaveData.level; }
+    public int GetWorld() { return mSaveData.world; }
 
     public void RegisterSaveData()
     {
@@ -49,4 +60,25 @@ public class GameData : AFramework.SingletonMono<GameData>, AFramework.ISaveData
         mSaveData.level = newLevel;
         DataChanged = true;
     }
+
+    public void ResetData()
+    {
+        mSaveData.level = 1;
+        mSaveData.world = 1;
+        mSaveData.coin = 0;
+        mSaveData.stars = null;
+        mSaveData.undo = 3;
+        mSaveData.shuffle = 3;
+        mSaveData.hint = 3;
+        DataChanged = true;
+    }
+
+    public void LevelUp(int world, int level)
+    {
+        mSaveData.level = level;
+        mSaveData.world = world;
+        DataChanged = true;
+    }
 }
+
+

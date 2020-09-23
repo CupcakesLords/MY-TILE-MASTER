@@ -125,8 +125,15 @@ public static class Utility
         }
     }
 
+    private static CheckPoint WorldLevel;
+
     public static CheckPoint ReadCheckPoint()
     {
+        if(WorldLevel != null)
+        {
+            return WorldLevel;
+        }
+
         CheckPoint result = new CheckPoint();
 
         TextAsset textFile = Resources.Load<TextAsset>("CheckPoint/CheckPointData");
@@ -134,7 +141,39 @@ public static class Utility
 
         result = JsonUtility.FromJson<CheckPoint>(line);
 
+        WorldLevel = result;
+
         return result;
+    }
+
+    public static int CalculateRelativeLevel(int world, int level)
+    {
+        if (world <= 0 || level <= 0)
+            return 1;
+
+        if(WorldLevel == null)
+        {
+            CheckPoint re = new CheckPoint();
+
+            TextAsset textFile = Resources.Load<TextAsset>("CheckPoint/CheckPointData");
+            string line = textFile.text;
+
+            re = JsonUtility.FromJson<CheckPoint>(line);
+
+            WorldLevel = re;
+        }
+
+        int result = 0;
+        for(int i = 0; i < world - 1; i++)
+        {
+            result += WorldLevel.NumberOfLevel[i];
+        }
+        result += level;
+
+        if (result > 1000)
+            return 1000;
+        else
+            return result;
     }
 }
 

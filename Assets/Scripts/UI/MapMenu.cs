@@ -10,12 +10,22 @@ public class MapMenu : BaseUIMenu
 
     public Button Skin;
 
+    public Button currentWorld;
+
+    public Text Process;
+
+    public List<GameObject> BG;
+    public List<GameObject> Locks;
+
     private CheckPoint lv;
 
     void Start()
     {
         Back.onClick.AddListener(() => BackToFront());
         Skin.onClick.AddListener(() => ToSkinMenu());
+        currentWorld.onClick.AddListener(() => GotoActionPhase(GameData.I.GetWorld()));
+
+        Process.text = GameData.I.GetWorld() + " - " + GameData.I.GetLevel();
 
         lv = Utility.ReadCheckPoint();
     }
@@ -51,5 +61,28 @@ public class MapMenu : BaseUIMenu
     public void ToSkinMenu()
     {
         CanvasManager.Push(GlobalInfor.SkinMenu, null);
+    }
+
+    override
+    public void Init(object[] initParams)
+    {
+        if (BG.Count != Locks.Count)
+            return;
+        
+        for (int i = 0; i < BG.Count; i++)
+        {
+            if (i < GameData.I.GetWorld())
+            {
+                BG[i].SetActive(true);
+                Locks[i].SetActive(false);
+            }
+            else
+            {
+                BG[i].SetActive(false);
+                Locks[i].SetActive(true);
+            }
+        }
+
+        Process.text = GameData.I.GetWorld() + " - " + GameData.I.GetLevel();
     }
 }

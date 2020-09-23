@@ -34,7 +34,7 @@ public class GamePlayMenu : BaseUIMenu
             Level = (int)param[0];
         }
 
-        _Level.text = "Level " + Level;
+        _Level.text = "Level " + BoardManager.instance.world + " - " + BoardManager.instance.level;
         
         BoardManager.instance.StartNewGame(Level);
     }

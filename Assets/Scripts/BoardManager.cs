@@ -38,6 +38,10 @@ public class BoardManager : MonoBehaviour
 
     private int CurrentLevel = 1;
 
+    //USED IN UI ONLY
+    public int world = 0;
+    public int level = 0;
+
     //RESOURCES
     private int totalSprites = 20;
     private int totalThemes = 5;
@@ -116,6 +120,7 @@ public class BoardManager : MonoBehaviour
         AlreadyLost = false;
         AlreadyWon = false;
         CurrentLevel = 1;
+        //world = 0; level = 0; //UI variables
     }
 
     public void StartNewGame(int Level)

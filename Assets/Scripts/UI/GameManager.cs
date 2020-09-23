@@ -8,13 +8,23 @@ public class GameManager : ManualSingletonMono<GameManager>
 {
     void Start()
     {
-        CanvasManager.Init(GlobalInfor.UIDefaultPath, GlobalInfor.FrontMenu);
-
         GameData.I.RegisterSaveData();
-
         SaveGameManager.I.Load();
 
-        StartCoroutine(CRAutoSave());
+        if (GameData.I.GetLevel() == 0) //first time game is opened
+        {
+            Debug.Log("First time");
+            GameData.I.ResetData();
+            SaveGameManager.I.Save();
+        }
+        else
+        {
+            Debug.Log("!First time");
+            Debug.Log("World: " + GameData.I.GetWorld());
+            Debug.Log("Level: " + GameData.I.GetLevel());
+        }
+
+        CanvasManager.Init(GlobalInfor.UIDefaultPath, GlobalInfor.FrontMenu);
     }
 
     IEnumerator CRAutoSave()

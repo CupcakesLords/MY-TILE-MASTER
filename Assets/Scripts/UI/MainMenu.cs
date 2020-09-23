@@ -38,6 +38,9 @@ public class MainMenu : BaseUIMenu
         object[] param = new object[1];
         param[0] = Level;
 
+        BoardManager.instance.world = World;
+        BoardManager.instance.level = Level - StartLevel + 1;
+
         CanvasManager.Pop(GlobalInfor.MapMenu); 
         CanvasManager.Push(GlobalInfor.GamePlayMenu, param);
     }
@@ -55,7 +58,7 @@ public class MainMenu : BaseUIMenu
 
         object[] param = initParams;
 
-        if ((int)param[0] != World)
+        if ((int)param[0] != World) //different world
         {
             World = (int)param[0];
             NumberOfLevel = (int)param[1];
@@ -63,6 +66,33 @@ public class MainMenu : BaseUIMenu
 
             DeleteButton();
             DrawButton();
+        }
+        else //same world, but needs to update process
+        {
+            if (buttons == null)
+                return;
+           
+            for (int k = 0; k < buttons.GetLength(0); k++)
+            {
+                for (int l = 0; l < buttons.GetLength(1); l++)
+                {
+                    int level = StartLevel + k + buttons.GetLength(0) * l;
+
+                    buttons[k, l].GetComponent<Button>().GetComponentInChildren<Text>().text = level.ToString();
+                    buttons[k, l].transform.GetChild(1).gameObject.SetActive(false);
+                    buttons[k, l].GetComponent<Button>().interactable = true;
+
+                    if (World == GameData.I.GetWorld()) //lock levels
+                    {
+                        if (k + buttons.GetLength(0) * l >= GameData.I.GetLevel())
+                        {
+                            buttons[k, l].GetComponent<Button>().GetComponentInChildren<Text>().text = "";
+                            buttons[k, l].transform.GetChild(1).gameObject.SetActive(true);
+                            buttons[k, l].GetComponent<Button>().interactable = false;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -82,6 +112,16 @@ public class MainMenu : BaseUIMenu
                 buttons[k, l].transform.position = new Vector3(x + k * gap, y - l * gap, 0);
                 buttons[k, l].GetComponent<Button>().GetComponentInChildren<Text>().text = level.ToString();
                 buttons[k, l].GetComponent<Button>().onClick.AddListener(() => GotoActionPhase(level));
+
+                if (World == GameData.I.GetWorld()) //lock levels
+                {
+                    if (k + buttons.GetLength(0) * l >= GameData.I.GetLevel()) 
+                    {
+                        buttons[k, l].GetComponent<Button>().GetComponentInChildren<Text>().text = "";
+                        buttons[k, l].transform.GetChild(1).gameObject.SetActive(true);
+                        buttons[k, l].GetComponent<Button>().interactable = false;
+                    }
+                }
             }
         }
     }
