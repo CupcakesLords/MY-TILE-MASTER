@@ -80,15 +80,18 @@ public class WinMenu : BaseUIMenu
 
         int worldsave = BoardManager.instance.world; int levelsave = BoardManager.instance.level;
 
-        if (Utility.ReadCheckPoint().NumberOfLevel[worldsave - 1] == levelsave) //end of this check point
+        if (worldsave == GameData.I.GetWorld() && levelsave == GameData.I.GetLevel())
         {
-            GameData.I.LevelUp(worldsave + 1, 1);
-            SaveGameManager.I.Save();
-        }
-        else
-        {
-            GameData.I.LevelUp(worldsave, levelsave + 1);
-            SaveGameManager.I.Save();
+            if (Utility.ReadCheckPoint().NumberOfLevel[worldsave - 1] == levelsave) //end of this check point
+            {
+                GameData.I.LevelUp(worldsave + 1, 1);
+                SaveGameManager.I.Save();
+            }
+            else
+            {
+                GameData.I.LevelUp(worldsave, levelsave + 1);
+                SaveGameManager.I.Save();
+            }
         }
     }
 }

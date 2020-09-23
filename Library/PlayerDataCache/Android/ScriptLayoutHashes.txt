@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Projects/My tile master/TileMaster3.1.apk
+C:/Projects/My tile master/TileMaster3.2.apk
 SceneListBegin?
 Assets/Scenes/Game.unity
 SceneListEnd?
