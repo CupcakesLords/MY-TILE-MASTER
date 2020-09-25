@@ -51,6 +51,8 @@ public class TimeBar : MonoBehaviour
             Resume();
         else if (action == 3)
             Restart();
+        else if (action == 4)
+            Add();
         return 0;
     }
 
@@ -70,6 +72,38 @@ public class TimeBar : MonoBehaviour
     {
         onPause = false; mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize);
         current = time; Filling[0].enabled = true; Filling[1].enabled = true; Filling[2].enabled = true; currentStar = 2;
+    }
+
+    public void Add()
+    {
+        current += 6f;
+        if (current >= time)
+        {
+            current = time; mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize);
+        }
+        else
+        {
+            mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * (current / time));
+        }
+        if(currentStar < 2 && currentStar >= -1)
+        {
+            if(currentStar == -1)
+            {
+                if (star[0] < current)
+                {
+                    currentStar += 1;
+                    Filling[currentStar].enabled = true;
+                    BoardManager.instance.star = currentStar + 1;
+                }
+                return;
+            }
+            if (star[currentStar] < current)
+            {
+                currentStar += 1;
+                Filling[currentStar].enabled = true;
+                BoardManager.instance.star = currentStar + 1;
+            }
+        }
     }
 
     void Update()

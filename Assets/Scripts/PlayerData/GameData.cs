@@ -29,6 +29,8 @@ public class GameData : AFramework.SingletonMono<GameData>, AFramework.ISaveData
 
     public int GetLevel() { return mSaveData.level; }
     public int GetWorld() { return mSaveData.world; }
+    public List<int> GetStar() { return mSaveData.stars; }
+    public int GetCoin() { return mSaveData.coin; }
 
     public void RegisterSaveData()
     {
@@ -66,7 +68,7 @@ public class GameData : AFramework.SingletonMono<GameData>, AFramework.ISaveData
         mSaveData.level = 1;
         mSaveData.world = 1;
         mSaveData.coin = 0;
-        mSaveData.stars = null;
+        mSaveData.stars = null; mSaveData.stars = new List<int>(); mSaveData.stars.Add(0);
         mSaveData.undo = 3;
         mSaveData.shuffle = 3;
         mSaveData.hint = 3;
@@ -77,6 +79,39 @@ public class GameData : AFramework.SingletonMono<GameData>, AFramework.ISaveData
     {
         mSaveData.level = level;
         mSaveData.world = world;
+        DataChanged = true;
+    }
+
+    public void AddStar(int star)
+    {
+        if (star < 0 || star > 3)
+            star = 3;
+
+        mSaveData.stars.RemoveAt(mSaveData.stars.Count - 1); //remove last
+        mSaveData.stars.Add(star);
+        mSaveData.stars.Add(0);
+        DataChanged = true;
+    }
+
+    public void AddOldStar(int level, int star)
+    {
+        if (level - 1 < 0 || level - 1 >= mSaveData.stars.Count)
+            return;
+
+        if (star < 0 || star > 3)
+            star = 3;
+        if (mSaveData.stars[level - 1] < star)
+        {
+            mSaveData.stars[level - 1] = star;
+        }
+        DataChanged = true;
+    }
+
+    public void AddCoin(int coin)
+    {
+        if (coin <= 0)
+            return;
+        mSaveData.coin += coin;
         DataChanged = true;
     }
 }

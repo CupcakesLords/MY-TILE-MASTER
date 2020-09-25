@@ -58,7 +58,7 @@ public class LoseMenu : BaseUIMenu
             Level = (int)param[0];
         }
 
-        _Level.text = "LEVEL " + Level + " LOST!";
+        _Level.text = BoardManager.instance.world + " - " + BoardManager.instance.level;
 
     }
 }

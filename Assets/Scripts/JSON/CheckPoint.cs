@@ -6,5 +6,7 @@ using UnityEngine;
 public class CheckPoint
 {
     public List<int> NumberOfLevel;
+    public List<int> NumberOfCoin;
+    public List<string> Names;
 }
 

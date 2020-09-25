@@ -10,6 +10,7 @@ public class MainMenu : BaseUIMenu
     public GameObject buttonPrefab;
     public GameObject canvas;
     public Image BG;
+    public Text Star;
 
     private int World = -100;
     private int NumberOfLevel;
@@ -17,17 +18,17 @@ public class MainMenu : BaseUIMenu
 
     private float x;
     private float y;
-    private float gap = 100; //200
+    private float gap = 140; //200
 
     private GameObject[,] buttons;
 
     void Awake()
     {
-        x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.35f;
-        y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.35f;
+        //x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.425f;
+        //y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.35f;
 
-        //x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.7f;
-        //y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.65f;
+        x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.3f;
+        y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.2f;
 
         Exit.onClick.AddListener(() => PopOut());
     }
@@ -58,6 +59,8 @@ public class MainMenu : BaseUIMenu
 
         object[] param = initParams;
 
+        Star.text = (string)param[3];
+
         if ((int)param[0] != World) //different world
         {
             World = (int)param[0];
@@ -78,9 +81,21 @@ public class MainMenu : BaseUIMenu
                 {
                     int level = StartLevel + k + buttons.GetLength(0) * l;
 
-                    buttons[k, l].GetComponent<Button>().GetComponentInChildren<Text>().text = level.ToString();
+                    buttons[k, l].GetComponent<Button>().GetComponentInChildren<Text>().text = (k + buttons.GetLength(0) * l + 1).ToString();
                     buttons[k, l].transform.GetChild(1).gameObject.SetActive(false);
                     buttons[k, l].GetComponent<Button>().interactable = true;
+
+                    if (level - 1 < GameData.I.GetStar().Count) //load star
+                    {
+                        for (int i = 2; i < 5; i++)
+                        {
+                            buttons[k, l].transform.GetChild(i).gameObject.SetActive(true);
+                        }
+                        for (int i = 2; i < 2 + GameData.I.GetStar()[level - 1]; i++)
+                        {
+                            buttons[k, l].transform.GetChild(i).GetChild(0).gameObject.SetActive(true);
+                        }
+                    }
 
                     if (World == GameData.I.GetWorld()) //lock levels
                     {
@@ -110,8 +125,20 @@ public class MainMenu : BaseUIMenu
                 int level = StartLevel + k + buttons.GetLength(0) * l;
 
                 buttons[k, l].transform.position = new Vector3(x + k * gap, y - l * gap, 0);
-                buttons[k, l].GetComponent<Button>().GetComponentInChildren<Text>().text = level.ToString();
+                buttons[k, l].GetComponent<Button>().GetComponentInChildren<Text>().text = (k + buttons.GetLength(0) * l + 1).ToString();
                 buttons[k, l].GetComponent<Button>().onClick.AddListener(() => GotoActionPhase(level));
+
+                if(level - 1 < GameData.I.GetStar().Count) //load star
+                {
+                    for (int i = 2; i < 5; i++)
+                    {
+                        buttons[k, l].transform.GetChild(i).gameObject.SetActive(true);
+                    }
+                    for (int i = 2; i < 2 + GameData.I.GetStar()[level - 1]; i++)
+                    {
+                        buttons[k, l].transform.GetChild(i).GetChild(0).gameObject.SetActive(true);
+                    }
+                }
 
                 if (World == GameData.I.GetWorld()) //lock levels
                 {

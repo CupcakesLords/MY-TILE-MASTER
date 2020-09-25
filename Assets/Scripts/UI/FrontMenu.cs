@@ -9,6 +9,8 @@ public class FrontMenu : BaseUIMenu
     public Button ToMap;
     public Button StartGame;
     public Text Process;
+    public Text World;
+    public Text Coins;
 
     void Start()
     {
@@ -39,5 +41,7 @@ public class FrontMenu : BaseUIMenu
     public void Init(object[] initParams)
     {
         Process.text = GameData.I.GetWorld() + " - " + GameData.I.GetLevel();
+        Coins.text = GameData.I.GetCoin() + "";
+        World.text = Utility.ReadCheckPoint().Names[GameData.I.GetWorld() - 1];
     }
 }

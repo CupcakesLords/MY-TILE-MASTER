@@ -11,6 +11,9 @@ public class GameManager : ManualSingletonMono<GameManager>
         GameData.I.RegisterSaveData();
         SaveGameManager.I.Load();
 
+        //GameData.I.ResetData();
+        //SaveGameManager.I.Save();
+
         if (GameData.I.GetLevel() == 0) //first time game is opened
         {
             Debug.Log("First time");

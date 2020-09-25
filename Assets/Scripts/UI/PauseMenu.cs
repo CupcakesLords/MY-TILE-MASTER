@@ -61,6 +61,6 @@ public class PauseMenu : BaseUIMenu
             Level = (int)param[0];
         }
 
-        _Level.text = "Level " + Level;
+        _Level.text = BoardManager.instance.world + " - " + BoardManager.instance.level;
     }
 }

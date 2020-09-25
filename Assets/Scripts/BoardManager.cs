@@ -130,9 +130,10 @@ public class BoardManager : MonoBehaviour
 
         Bar.SetActive(true); CurrentLevel = Level;
         currentLevel = Utility.ReadGameLevelFromAsset(Level);
-        
+
         // level time and number of tiles
-        GameEventSystem.current.SetTimeBar(120f, 30f, 60f, 90f);
+        GameEventSystem.current.SetTimeBar(300f, 60f, 150f, 240f);
+        //GameEventSystem.current.SetTimeBar(90f, 30f, 45f, 60f);
 
         characters.Clear();
         characters = all_characters.GetRange(0, SpriteInUse(Level));
@@ -202,6 +203,7 @@ public class BoardManager : MonoBehaviour
 
     public void Delete(LinkedList<GameObject> chosenTile, List<GameObject> NeedRemoving)
     {
+        GameEventSystem.current.TimeControl(4);
         StartCoroutine(DeleteCallback(chosenTile, NeedRemoving));
     }
 
