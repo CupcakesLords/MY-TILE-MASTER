@@ -44,7 +44,9 @@ public class LoseMenu : BaseUIMenu
         CanvasManager.Pop(GlobalInfor.GamePlayMenu);
         object[] param = new object[1];
         param[0] = Level;
-        CanvasManager.Push(GlobalInfor.GamePlayMenu, param); GameEventSystem.current.TimeControl(3);
+
+        GameEventSystem.current.TimeControl(3);
+        CanvasManager.Push(GlobalInfor.GamePlayMenu, param); 
     }
 
     override

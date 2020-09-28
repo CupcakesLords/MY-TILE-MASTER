@@ -31,6 +31,9 @@ public class GameData : AFramework.SingletonMono<GameData>, AFramework.ISaveData
     public int GetWorld() { return mSaveData.world; }
     public List<int> GetStar() { return mSaveData.stars; }
     public int GetCoin() { return mSaveData.coin; }
+    public int GetUndo() { return mSaveData.undo; }
+    public int GetShuffle() { return mSaveData.shuffle; }
+    public int GetHint() { return mSaveData.hint; }
 
     public void RegisterSaveData()
     {
@@ -112,6 +115,56 @@ public class GameData : AFramework.SingletonMono<GameData>, AFramework.ISaveData
         if (coin <= 0)
             return;
         mSaveData.coin += coin;
+        DataChanged = true;
+    }
+
+    public void MinusCoin(int coin)
+    {
+        if (coin <= 0)
+            return;
+        mSaveData.coin -= coin;
+        DataChanged = true;
+    }
+
+    public void UseUndo()
+    {
+        mSaveData.undo = mSaveData.undo - 1;
+        if (mSaveData.undo < 0)
+            mSaveData.undo = 0;
+        DataChanged = true;
+    }
+
+    public void BuyUndo()
+    {
+        mSaveData.undo = mSaveData.undo + 1;
+        DataChanged = true;
+    }
+
+    public void UseShuffle()
+    {
+        mSaveData.shuffle = mSaveData.shuffle - 1;
+        if (mSaveData.shuffle < 0)
+            mSaveData.shuffle = 0;
+        DataChanged = true;
+    }
+
+    public void BuyShuffle()
+    {
+        mSaveData.shuffle = mSaveData.shuffle + 1;
+        DataChanged = true;
+    }
+
+    public void UseHint()
+    {
+        mSaveData.hint = mSaveData.hint - 1;
+        if (mSaveData.hint < 0)
+            mSaveData.hint = 0;
+        DataChanged = true;
+    }
+
+    public void BuyHint()
+    {
+        mSaveData.hint = mSaveData.hint + 1;
         DataChanged = true;
     }
 }

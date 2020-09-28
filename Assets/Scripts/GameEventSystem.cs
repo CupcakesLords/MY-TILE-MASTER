@@ -118,4 +118,15 @@ public class GameEventSystem : MonoBehaviour
         }
         return 0;
     }
+
+    public Func<int, int> onBoosterPurchaseUpdateUI;
+
+    public int BoosterPurchaseUpdateUI(int choice)
+    {
+        if(onBoosterPurchaseUpdateUI != null)
+        {
+            return onBoosterPurchaseUpdateUI(choice);
+        }
+        return 0;
+    }
 }

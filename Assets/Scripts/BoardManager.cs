@@ -35,6 +35,7 @@ public class BoardManager : MonoBehaviour
 
     private bool AlreadyLost = false;
     private bool AlreadyWon = false;
+    private bool AlreadyFirstMatch = false;
 
     private int CurrentLevel = 1;
 
@@ -57,6 +58,16 @@ public class BoardManager : MonoBehaviour
 
         instance = GetComponent<BoardManager>();
         xBar = -(Bar.GetComponent<SpriteRenderer>().bounds.size.x / 2) + (tile.GetComponent<SpriteRenderer>().bounds.size.x / 1.5f);  yBar = Bar.transform.position.y  + (Bar.GetComponent<SpriteRenderer>().bounds.size.y / 7.75f);
+    }
+
+    public bool IsPlaying()
+    {
+        return gameTiles != null;
+    }
+
+    public bool AlreadyFirstMatchDestroyed()
+    {
+        return AlreadyFirstMatch;
     }
 
     public void ResetBG(int n)
@@ -119,6 +130,7 @@ public class BoardManager : MonoBehaviour
         coin = 0; star = 3;
         AlreadyLost = false;
         AlreadyWon = false;
+        AlreadyFirstMatch = false;
         CurrentLevel = 1;
         //world = 0; level = 0; //UI variables
     }
@@ -133,7 +145,8 @@ public class BoardManager : MonoBehaviour
 
         // level time and number of tiles
         GameEventSystem.current.SetTimeBar(300f, 60f, 150f, 240f);
-        //GameEventSystem.current.SetTimeBar(90f, 30f, 45f, 60f);
+
+        GameEventSystem.current.TimeControl(1);
 
         characters.Clear();
         characters = all_characters.GetRange(0, SpriteInUse(Level));
@@ -203,7 +216,15 @@ public class BoardManager : MonoBehaviour
 
     public void Delete(LinkedList<GameObject> chosenTile, List<GameObject> NeedRemoving)
     {
-        GameEventSystem.current.TimeControl(4);
+        if(AlreadyFirstMatch == false)
+        {
+            GameEventSystem.current.TimeControl(2);
+            AlreadyFirstMatch = true;
+        }
+        else
+        {
+            GameEventSystem.current.TimeControl(4);
+        }
         StartCoroutine(DeleteCallback(chosenTile, NeedRemoving));
     }
 
@@ -307,10 +328,11 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    public void UndoRecord()
+    public bool UndoRecord()
     {
         if (histoire.Count == 0)
-            return;
+            return false;
+
         Record r = histoire[histoire.Count - 1];
         histoire.RemoveAt(histoire.Count - 1);
 
@@ -318,6 +340,7 @@ public class BoardManager : MonoBehaviour
         bar.UponUndo(tile);
 
         GameEventSystem.current.Undo(r);
+        return true;
     }
 
     public void Refresh()

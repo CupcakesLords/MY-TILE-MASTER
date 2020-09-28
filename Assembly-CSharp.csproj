@@ -152,6 +152,9 @@
     <Compile Include="Assets\Scripts\UI\SkinUI\SkinCollectionSubMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SkinUI\SkinMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SkinUI\ThemeCollectionSubMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\StoreUI\StoreMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\StoreUI\StoreSubCoinMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\StoreUI\StoreSubStoreMenu.cs" />
     <Compile Include="Assets\Scripts\UI\WinMenu.cs" />
     <None Include="Assets\Resources\MapConfigs\655.txt" />
     <None Include="Assets\Resources\MapConfigs\529.txt" />

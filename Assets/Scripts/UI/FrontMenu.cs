@@ -11,11 +11,22 @@ public class FrontMenu : BaseUIMenu
     public Text Process;
     public Text World;
     public Text Coins;
+    public Button Coin;
+    public Button Shop;
 
     void Start()
     {
         ToMap.onClick.AddListener(() => GotoMap());
         StartGame.onClick.AddListener(() => GoToCurrentLevel());
+        Coin.onClick.AddListener(() => GoToShop());
+        Shop.onClick.AddListener(() => GoToShop());
+    }
+
+    void GoToShop()
+    {
+        object[] param = new object[1];
+        param[0] = 1;
+        CanvasManager.Push(GlobalInfor.StoreMenu, param); 
     }
 
     void GoToCurrentLevel()

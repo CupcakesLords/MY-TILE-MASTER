@@ -18,7 +18,7 @@ public class MainMenu : BaseUIMenu
 
     private float x;
     private float y;
-    private float gap = 140; //200
+    private float gap = 125; //200 //140
 
     private GameObject[,] buttons;
 
@@ -27,7 +27,7 @@ public class MainMenu : BaseUIMenu
         //x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.425f;
         //y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.35f;
 
-        x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.3f;
+        x = BG.transform.position.x - BG.rectTransform.sizeDelta.x * 0.275f; //0.3f
         y = BG.transform.position.y + BG.rectTransform.sizeDelta.y * 0.2f;
 
         Exit.onClick.AddListener(() => PopOut());

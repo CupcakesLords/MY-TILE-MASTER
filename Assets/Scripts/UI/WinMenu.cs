@@ -46,7 +46,8 @@ public class WinMenu : BaseUIMenu
             BoardManager.instance.level = temp2 + 1;
         }
 
-        CanvasManager.Push(GlobalInfor.GamePlayMenu, param); GameEventSystem.current.TimeControl(3);
+        GameEventSystem.current.TimeControl(3);
+        CanvasManager.Push(GlobalInfor.GamePlayMenu, param); 
     }
 
     public void BackToMain()

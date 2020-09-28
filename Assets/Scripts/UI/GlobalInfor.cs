@@ -18,4 +18,7 @@ public class GlobalInfor : SingletonMono<GlobalInfor>
     public const string SkinCollectionSubMenu = "SkinCollectionSubMenu";
     public const string ThemeCollectionSubMenu = "ThemeCollectionSubMenu";
     public const string EmptyMenu = "EmptyMenu";
+    public const string StoreMenu = "StoreMenu";
+    public const string StoreSubStoreMenu = "StoreSubStoreMenu";
+    public const string StoreSubCoinMenu = "StoreSubCoinMenu";
 }
