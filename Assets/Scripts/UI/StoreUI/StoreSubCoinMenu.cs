@@ -19,6 +19,10 @@ public class StoreSubCoinMenu : BaseUIMenu
     {
         if(GameData.I.GetCoin() < 100)
         {
+            object[] param1 = new object[2];
+            param1[0] = "Not enough money!";
+            param1[1] = 1f;
+            CanvasManager.Push(GlobalInfor.MessageMenu, param1);
             return;
         }
         
@@ -43,5 +47,10 @@ public class StoreSubCoinMenu : BaseUIMenu
         {
             GameEventSystem.current.BoosterPurchaseUpdateUI(choice);
         }
+
+        object[] param = new object[2];
+        param[0] = "Purchase successful!";
+        param[1] = 1f;
+        CanvasManager.Push(GlobalInfor.MessageMenu, param);
     }
 }
