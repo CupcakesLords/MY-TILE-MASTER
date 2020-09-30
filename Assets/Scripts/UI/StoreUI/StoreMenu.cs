@@ -20,14 +20,7 @@ public class StoreMenu : BaseUIMenu
 
     private void BackToMap()
     {
-        Pop();
-        if (currentToggle == 1)
-            CanvasManager.Pop(GlobalInfor.StoreSubStoreMenu);
-        else if (currentToggle == 2)
-            CanvasManager.Pop(GlobalInfor.StoreSubCoinMenu);
-
-        if (BoardManager.instance.AlreadyFirstMatchDestroyed())
-            GameEventSystem.current.TimeControl(2);
+        StartCoroutine(PopOutAnimation());
     }
 
     public void Toggle(int ID)
@@ -38,12 +31,12 @@ public class StoreMenu : BaseUIMenu
         if (ID == 2)
         {
             CanvasManager.Pop(GlobalInfor.StoreSubStoreMenu);
-            CanvasManager.Push(GlobalInfor.StoreSubCoinMenu, null);
+            CanvasManager.Push(GlobalInfor.StoreSubCoinMenu, null); 
         }
         else if (ID == 1)
         {
             CanvasManager.Pop(GlobalInfor.StoreSubCoinMenu);
-            CanvasManager.Push(GlobalInfor.StoreSubStoreMenu, null);
+            CanvasManager.Push(GlobalInfor.StoreSubStoreMenu, null); 
         }
 
         currentToggle = ID;
@@ -63,21 +56,89 @@ public class StoreMenu : BaseUIMenu
 
         if (currentToggle == 1)
         {
-            store.GetComponent<Toggle>().isOn = true;
             if (first || prev == currentToggle)
             {
-                first = false;
-                CanvasManager.Push(GlobalInfor.StoreSubStoreMenu, null);
+                first = false; 
+                CanvasManager.Push(GlobalInfor.StoreSubStoreMenu, null); 
             }
+            store.GetComponent<Toggle>().isOn = true;
+            GameEventSystem.current.onStoreStoreControl(true);
         }
         else if (currentToggle == 2)
         {
-            coin.GetComponent<Toggle>().isOn = true;
             if (first || prev == currentToggle)
             {
-                first = false;
-                CanvasManager.Push(GlobalInfor.StoreSubCoinMenu, null);
+                first = false; 
+                CanvasManager.Push(GlobalInfor.StoreSubCoinMenu, null); 
             }
+            coin.GetComponent<Toggle>().isOn = true;
+            GameEventSystem.current.onStoreCoinControl(true);
         }
+        StartCoroutine(PopUpAnimation());
+    }
+
+    public Image BG;
+    float dur = 0.5f;
+    float dur2 = 0.25f;
+
+    IEnumerator PopUpAnimation()
+    {
+        CanvasManager.Push(GlobalInfor.EmptyMenu, null);
+        RectTransform rectTransform = BG.GetComponent<RectTransform>();
+        float t = dur;
+        rectTransform.localScale *= 0.85f;
+        while (t > 0f && rectTransform.localScale.x <= 1.05f && rectTransform.localScale.y <= 1.05f && rectTransform.localScale.z <= 1.05f)
+        {
+            t -= Time.deltaTime;
+            rectTransform.localScale += new Vector3(0.065f, 0.065f, 0) * (t * t / dur);
+            yield return null;
+        }
+        rectTransform.localScale = new Vector3(1.05f, 1.05f, 1.05f);
+        t = 0f;
+        while (t < dur2 && rectTransform.localScale.x >= 1 && rectTransform.localScale.y >= 1 && rectTransform.localScale.z >= 1)
+        {
+            t += Time.deltaTime;
+            rectTransform.localScale -= new Vector3(0.065f, 0.065f, 0) * (t * t / dur2);
+            yield return null;
+        }
+        rectTransform.localScale = new Vector3(1f, 1f, 1f);
+        CanvasManager.Pop(GlobalInfor.EmptyMenu);
+    }
+
+    IEnumerator PopOutAnimation()
+    {
+        if (currentToggle == 1)
+            GameEventSystem.current.onStoreStoreControl(false);
+        else if (currentToggle == 2)
+            GameEventSystem.current.onStoreCoinControl(false);
+
+        CanvasManager.Push(GlobalInfor.EmptyMenu, null);
+        RectTransform rectTransform = BG.GetComponent<RectTransform>();
+        float t = dur2;
+        while (t > 0f && rectTransform.localScale.x <= 1.05f && rectTransform.localScale.y <= 1.05f && rectTransform.localScale.z <= 1.05f)
+        {
+            t -= Time.deltaTime;
+            rectTransform.localScale += new Vector3(0.065f, 0.065f, 0) * (t * t / dur2);
+            yield return null;
+        }
+        rectTransform.localScale = new Vector3(1.05f, 1.05f, 1.05f);
+        t = 0f;
+        while (t < dur2 && rectTransform.localScale.x >= 1 && rectTransform.localScale.y >= 1 && rectTransform.localScale.z >= 1)
+        {
+            t += Time.deltaTime;
+            rectTransform.localScale -= new Vector3(0.065f, 0.065f, 0) * (t * t / dur2);
+            yield return null;
+        }
+        rectTransform.localScale = new Vector3(1f, 1f, 1f);
+        CanvasManager.Pop(GlobalInfor.EmptyMenu);
+
+        Pop();
+        if (currentToggle == 1)
+            CanvasManager.Pop(GlobalInfor.StoreSubStoreMenu);
+        else if (currentToggle == 2)
+            CanvasManager.Pop(GlobalInfor.StoreSubCoinMenu);
+
+        if (BoardManager.instance.AlreadyFirstMatchDestroyed())
+            GameEventSystem.current.TimeControl(2);
     }
 }

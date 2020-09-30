@@ -129,4 +129,48 @@ public class GameEventSystem : MonoBehaviour
         }
         return 0;
     }
+
+    public Func<bool, int> onStoreCoinControl;
+
+    public int StoreCoinControl(bool popup)
+    {
+        if(onStoreCoinControl != null)
+        {
+            return onStoreCoinControl(popup);
+        }
+        return 0;
+    }
+
+    public Func<bool, int> onStoreStoreControl;
+
+    public int StoreStoreControl(bool popup)
+    {
+        if (onStoreStoreControl != null)
+        {
+            return onStoreStoreControl(popup);
+        }
+        return 0;
+    }
+
+    public Func<bool, int> onSkinControl;
+
+    public int SkinControl(bool popup)
+    {
+        if(onSkinControl != null)
+        {
+            return onSkinControl(popup);
+        }
+        return 0;
+    }
+
+    public Func<bool, int> onThemeControl;
+
+    public int ThemeControl(bool popup)
+    {
+        if (onThemeControl != null)
+        {
+            return onThemeControl(popup);
+        }
+        return 0;
+    }
 }

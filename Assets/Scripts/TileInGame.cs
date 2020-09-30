@@ -48,6 +48,7 @@ public class TileInGame : MonoBehaviour, IPointerDownHandler
 
     private IEnumerator Wither(float dur)
     {
+        AudioManager.instance.PlayDestroySound();
         float t = 0f;
         while (t < dur && transform.localScale.x >= 0)
         {

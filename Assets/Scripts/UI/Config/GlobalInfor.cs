@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AFramework;
+using AFramework.UI;
 
 public class GlobalInfor : SingletonMono<GlobalInfor>
 {
@@ -22,4 +23,5 @@ public class GlobalInfor : SingletonMono<GlobalInfor>
     public const string StoreSubStoreMenu = "StoreSubStoreMenu";
     public const string StoreSubCoinMenu = "StoreSubCoinMenu";
     public const string MessageMenu = "MessageMenu";
+    public const string SettingMenu = "SettingMenu";
 }

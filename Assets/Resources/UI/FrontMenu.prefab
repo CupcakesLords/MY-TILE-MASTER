@@ -2265,6 +2265,7 @@ MonoBehaviour:
   _UILayer: 1
   _Unique: 1
   _canDestroy: 0
+  Setting: {fileID: 5336325166333835279}
   ToMap: {fileID: 5470327780047363148}
   StartGame: {fileID: 128304876080081478}
   Process: {fileID: 6904593761265946017}

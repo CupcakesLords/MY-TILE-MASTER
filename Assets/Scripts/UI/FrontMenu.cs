@@ -6,6 +6,7 @@ using AFramework.UI;
 
 public class FrontMenu : BaseUIMenu
 {
+    public Button Setting;
     public Button ToMap;
     public Button StartGame;
     public Text Process;
@@ -20,6 +21,12 @@ public class FrontMenu : BaseUIMenu
         StartGame.onClick.AddListener(() => GoToCurrentLevel());
         Coin.onClick.AddListener(() => GoToShop());
         Shop.onClick.AddListener(() => GoToShop());
+        Setting.onClick.AddListener(() => GoToSetting());
+    }
+
+    void GoToSetting()
+    {
+        CanvasManager.Push(GlobalInfor.SettingMenu, null);
     }
 
     void GoToShop()

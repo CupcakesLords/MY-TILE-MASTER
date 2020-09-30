@@ -7,7 +7,7 @@ using AFramework.UI;
 public class MessageMenu : BaseUIMenu
 {
     public Text Message;
-    float dur;
+    float dur = 0.25f;
 
     override
     public void Init(object[] initParams)
@@ -20,12 +20,22 @@ public class MessageMenu : BaseUIMenu
         Message.text = Mess;
         dur = (float)param[1];
 
-        StartCoroutine(Wait());
+        StartCoroutine(Wait()); 
     }
 
     IEnumerator Wait()
     {
-        WaitForSeconds waitTime = new WaitForSeconds(dur);
+        RectTransform rectTransform = GetComponent<RectTransform>(); float _x = rectTransform.position.x; float _y = rectTransform.position.y; float _z = rectTransform.position.z;
+        float t = 0f;
+        rectTransform.position -= new Vector3(0, 75f, 0);
+        while (t < dur && rectTransform.position.y <= _y)
+        {
+            t += Time.deltaTime;
+            rectTransform.position += new Vector3(0, 150f, 0) * (t * t / dur);
+            yield return null;
+        }
+        rectTransform.position = new Vector3(_x, _y, _z);
+        WaitForSeconds waitTime = new WaitForSeconds(0.25f);
         yield return waitTime;
         Pop();
     }

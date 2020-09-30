@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\BoardManager.cs" />
     <Compile Include="Assets\Scripts\Framework\AFramework\3rdParty\AndroidVersion.cs" />
     <Compile Include="Assets\Scripts\Framework\AFramework\3rdParty\EditorCoroutines\Scripts\CoroutineWindowExample.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Assets\Scripts\UI\MapMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MessageMenu.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SettingMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SkinUI\SkinCollectionSubMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SkinUI\SkinMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SkinUI\ThemeCollectionSubMenu.cs" />
